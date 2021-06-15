@@ -1,0 +1,1 @@
+web: gunicorn smoak.wsgi --log-file -

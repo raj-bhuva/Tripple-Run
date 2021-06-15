@@ -1,0 +1,629 @@
+{% load static %} {% static "img" as basrurl %}
+
+{% comment %} for social login {% endcomment %}
+{% load socialaccount %}
+{% comment %} {% providers_media_js %}  {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedStore | E-commerce Web-site</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sintony:400,700&subset=latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    
+    {% comment %}
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'login/newlogin.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'responsiv.css' %}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="container collapse navbar-collapse" id="main-navbar">
+        <div class="navbar nav navbar-nav">
+          <div class="logo">
+            <a href="/"
+              ><img src="{% static  'img/raj.png' %}" width="125px"
+            /></a>
+          </div>
+          <nav class="nav navbar-nav">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle" class="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+            <ul class="nav-list navbar navbar-default">
+              <li><a class="active" href="/">Home</a></li>
+              <li><a href="products">Products</a>
+         
+           
+                  <ul>
+                    {% for category in categories %}
+
+                        <li><a href="#">{{category.name}}</a>
+                          {% for subcategory in subcategories %}
+                            {% if subcategory.parent_id == category.id %}
+                              <ul>
+                              
+                                <li><a href="#">{{subcategory.name}}</a>
+                                  {% for subsubcategory in subsubcategories %}
+                                    {% if subsubcategory.parent_id == subcategory.id %}
+                                      <ul>
+                                        <li><a href="#">{{subsubcategory.name}}</a></li>
+                                      </ul>
+                                    {% endif %}
+                                  {% endfor %}
+                                </li>
+                              </ul>
+                            {% endif %}
+                          {%endfor%}
+                        </li>
+                    {%endfor%}  
+                  </ul>
+           
+          
+              </li>
+
+              {% comment %}
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              {% endcomment %} {% if user.is_authenticated %}
+              <li>Hello, {{user.first_name}}</li>
+              <li><a href="{{request.get_path_info}}/logout">Logout</a></li>
+              {% else %}
+              <li>
+                <a id="myBtn">Login</a>
+                <div id="myModal" class="modal">                  
+                  <div class="signup">
+                    
+                    <div class="signup-classic">
+                      <span id="close-modal" class="close">&times;</span>
+                      <h1 class="ragister_title">Log in</h1>
+                      
+                      <form
+                        action="{{request.get_path_info}}/login"
+                        method="POST"
+                        class="form"
+                        id="login-form"
+                      >
+                        {% csrf_token %}
+                        <fieldset class="username">
+                          <input
+                            type="text"
+                            name="username"
+                            placeholder="User name"
+                          />
+                        </fieldset>
+
+                        {% comment %} <fieldset class="email">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                          />
+                        </fieldset> {% endcomment %}
+                        
+
+                        <fieldset class="password">
+                          <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                          />
+                        </fieldset>
+                        {%for message in messages %} {{message}} {% endfor %}
+                        <button type="submit" class="btn">
+                          <strong>Log in</strong>
+                        </button>
+                      </form>
+                      <div class="signup-title">
+                        <p>or signin with</p>
+                      </div>
+                      <div class="signup-connect">
+                        <a href="#" class="btn-login btn-facebook"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                        <a href="#" class="btn-login btn-twitter"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                        <a href="{% provider_login_url "google" %}" class="btn-login btn-google"
+                          ><i class="fa fa-google"></i>
+                        </a>
+                        <a href="#" class="btn-login btn-linkedin"
+                          ><i class="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a id="myBtn1">Register</a>
+                <div id="myModal1" class="modal">
+                  <div class="signup">
+                    <div class="signup-classic">
+                      <span class="close">&times;</span>
+                      <h1 class="ragister_title">Register</h1>
+                      
+                      <form class="form">
+                        <fieldset class="username">
+                          <input type="text" placeholder="username" />
+                        </fieldset>
+                        <fieldset class="email">
+                          <input type="email" placeholder="email" />
+                        </fieldset>
+                        <fieldset class="password">
+                          <input type="password" placeholder="password" />
+                        </fieldset>
+                        <fieldset class="password">
+                          <input type="password" placeholder="comfirm password" />
+                        </fieldset>
+                        <button type="submit" class="btn">sign up</button>
+                      </form>
+                      <div class="signup-title">
+                        <p>or signup with</p>
+                      </div>
+                      <div class="signup-connect">
+                        <a href="#" class="btn-login btn-facebook"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                        <a href="#" class="btn-login btn-twitter"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                        <a href="{% provider_login_url "google" %}" class="btn-login btn-google"
+                          ><i class="fa fa-google"></i>
+                        </a>
+                        <a href="#" class="btn-login btn-linkedin"
+                          ><i class="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              {% endif %}
+              <form action="/search" name="myform" method="GET">
+              {% comment %} {% csrf_token%} {% endcomment %}
+                
+                <input id="autocomplete" type="text" name="q" placeholder="Search" />
+                <button >Go</button>    
+              </form>
+              <img src="{% static 'img/cart.png' %}" width="30px" height="30px" />
+            </ul>
+          </nav>
+          
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <h1>Give Your Workout <br />A New Style!</h1>
+            <p>
+              Success isn't always greatness. It's about Consistency.
+              Consistent<br />
+              hard work gains success. Greatness will come
+            </p>
+            <a href="/products" class="btn">Explore Now &#8594;</a>
+          </div>
+          
+          <div class="col-2">
+            <img src="{% static 'img/image1.png' %}" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- -----products category -->
+    <div class="categories">
+      <div class="small-container">
+        <div class="row">
+          <div
+            class="col-3"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+          >
+            <img src="{% static 'img/category-1.jpg' %}" />
+          </div>
+          <div
+            class="col-3"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+          >
+            <img src="{% static 'img/category-2.jpg' %}" />
+          </div>
+          <div
+            class="col-3"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500"
+          >
+            <img src="{% static 'img/category-3.jpg' %}" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------Featured Products-------- -->
+  
+    <div class="small-container">
+      <h1 class="title">Exclusive on TrippleRun</h1>
+      <div class="row">
+        {% for product in feature_products %}
+        <div class="col-4" data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500">
+          <a href="/singal-products/{{product.id}}"
+            ><img src="{{product.img.url}}" alt="image"
+          /></a>
+          <h4>{{product.name}}</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>Design Code: <strong>{{product.design_code}}</strong></p>
+        </div>
+        {% endfor %} {% comment %}
+        <div class="col-4">
+          <img src="{% static 'img/product-2.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-3.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-4.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+    <!-- -------Latest Products-------- -->
+    <div class="small-container">
+      <h1 class="title">Latest Products</h1>
+      <div class="row">
+        {% for product in latest_products %}
+        <div class="col-4" data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="500">
+          <a href="/singal-products/{{product.id}}">
+            <img src=" {{product.img.url}}"
+          /></a>
+          <h4>{{product.name}}</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>Design Code: <strong>{{product.design_code}}</strong></p>
+        </div>
+        {% endfor%} {% comment %}
+        <div class="col-4">
+          <img src="{% static 'img/product-6.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-7.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-8.jpg'%}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-9.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-10.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-11.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="{% static 'img/product-12.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+    <!-- -------Exclusive Products-------- -->
+    {% comment %} <div class="banner">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-2">
+            <img src="{% static 'img/exclusive.png' %}" />
+          </div>
+          <div class="col-2">
+            <p>Exclusively Available on RedStore</p>
+            <h1>Smart Band 4</h1>
+            <small
+              >The Mi Smart Band 4 features a 39.3% larger (than Mi Band 3)
+              AMOLED color <br />full-touch display with adjustable brightness,
+              so everything<br />
+              is clear as can be.
+            </small>
+            <div>
+              <a href="#" class="btn">Buy Now &#8594;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <!-- -------testimonial-------- -->
+    <div class="testimonial">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              quaerat culpa libero repudiandae maiores alias esse corrupti
+              doloremque totam, voluptatem, at doloribus voluptate expedita
+              ipsa!
+            </p>
+            <div class="user">
+              <img src="{% static 'img/user-1.png' %}" />
+              <div class="user-details">
+                <h4>Sean parker</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              quaerat culpa libero repudiandae maiores alias esse corrupti
+              doloremque totam, voluptatem, at doloribus voluptate expedita
+              ipsa!
+            </p>
+            <div class="user">
+              <img src=" {% static 'img/user-2.png' %}" />
+              <div class="user-details">
+                <h4>Mike Smith</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-quote-left"></i>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              quaerat culpa libero repudiandae maiores alias esse corrupti
+              doloremque totam, voluptatem, at doloribus voluptate expedita
+              ipsa!
+            </p>
+            <div class="user">
+              <img src=" {% static 'img/user-3.png' %}" />
+              <div class="user-details">
+                <h4>Mabel Joe</h4>
+                <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------brands------- -->
+    <div class="brands">
+      <div class="small-container">
+        <div class="row">
+          <div class="col-5">
+            <img src="{% static 'img/logo-coca-cola.png' %}" />
+          </div>
+          <div class="col-5">
+            <img src="{% static 'img/logo-oppo.png' %}" />
+          </div>
+          <div class="col-5">
+            <img src="{% static 'img/logo-godrej.png' %}" />
+          </div>
+          <div class="col-5">
+            <img src="{% static 'img/logo-philips.png' %}" />
+          </div>
+          <div class="col-5">
+            <img src="{% static 'img/logo-paypal.png' %}" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- --------footer----- -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h4>Download Our App</h4>
+            <p>Download App for Android and ios mobile phone.</p>
+            <div class="appstore">
+              <img src="{% static 'img/app-store.png' %}" width="120px" />
+              <img src="{% static 'img/play-store.png' %}" width="120px" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="{% static 'img/raj.png' %}" width="120px" />
+            <p>Download Latest & attractive Designs FREE</p>
+            <p style="color: #a0ce5b">@TRIPPLE RUN</p>
+          </div>
+          <div class="footer-col-3">
+            <h4>Useful Links</h4>
+            <hr />
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="products">All Products</a></li>
+              <li><a href="#">Policy</a></li>
+              <li><a href="#">Term&Condition</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h4>Follow Us</h4>
+            <hr />
+            <ul>
+              <li><i class="fa fa-facebook"></i>Facebook</li>
+              <li><i class="fa fa-twitter"></i>Twitter</li>
+              <li><i class="fa fa-instagram"></i>InstaGram</li>
+
+              <li><i class="fa fa-youtube-play"></i>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">copyright 2020 - Tripple Run</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    {% comment %}
+    <script>
+      jQuery(document).ready(function () {
+        $(".dropdown").hover(
+          function () {
+            $(".dropdown-menu", this).fadeIn(300);
+          },
+          function () {
+            $(".dropdown-menu", this).fadeOut(300);
+          }
+        );
+      });
+    </script>
+    {% endcomment %} {% comment %}
+    <script src="{% static 'register.js' %}"></script>
+    {% endcomment %}
+    <script src="{% static 'login/login.js' %}"></script>
+    
+    </script>
+  </body>
+</html>

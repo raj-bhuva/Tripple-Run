@@ -1,0 +1,870 @@
+{% load static%}{% static "img" as basrurl %} {% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{%static 'assets/images/favicon.png' %}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/animate.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/chosen.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/font-awesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/jquery.scrollbar.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/lightbox.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/magnific-popup.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/slick.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/fonts/flaticon.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'assets/css/megamenu.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/dreaming-attribute.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'login/css/loginstyle.css' %}"
+    />
+
+    <title>Furgan - HTML Template</title>
+  </head>
+  <body>
+    <header id="header" class="header style-02 header-dark">
+      <!-- <header id="header" class="header style-02 header-dark header-transparent"></header> -->
+      <div class="header-wrap-stick">
+        <div class="header-position">
+          <div class="header-middle">
+            <div class="furgan-menu-wapper"></div>
+            <div class="header-middle-inner">
+              <div class="header-search-menu">
+                <div class="block-menu-bar">
+                  <a class="menu-bar menu-toggle" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
+              </div>
+              <div class="header-logo-nav">
+                <div class="header-logo">
+                  <a href="/"
+                    ><img
+                      alt="Furgan"
+                      src="{%static 'assets/images/logo.png' %}"
+                      class="logo"
+                  /></a>
+                </div>
+                <div class="box-header-nav menu-nocenter">
+                  <ul
+                    id="menu-primary-menu"
+                    class="clone-main-menu furgan-clone-mobile-menu furgan-nav main-menu"
+                  >
+                    <li
+                      id="menu-item-230"
+                      class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-230 parent parent-megamenu item-megamenu menu-item-has-children"
+                    >
+                      <a class="furgan-menu-item-title" title="Home" href="/"
+                        >Home</a
+                      >
+                    </li>
+                    <li
+                      id="menu-item-228"
+                      class="menu-item menu-item-type-post_type menu-item-object-megamenu menu-item-228 parent parent-megamenu item-megamenu menu-item-has-children"
+                    >
+                      <a
+                        class="furgan-menu-item-title"
+                        title="ALL Designs"
+                        href="/products"
+                        >ALL Designs</a
+                      >
+                      <span class="toggle-submenu"></span>
+                      <div class="submenu megamenu megamenu-shop">
+                        <div class="row">
+                          {% for category in categories %}
+                          <div class="col-md-4">
+                            <div class="furgan-listitem style-01">
+                              <div class="listitem-inner">
+                                <h4>
+                                  <a
+                                    href="/products/{{category.id}}"
+                                    class="title"
+                                    ><b>{{category.name}}</b></a
+                                  >
+                                </h4>
+                                {% for subcategory in subcategories %}
+                                <ul class="listitem-list">
+                                  {%if subcategory.parent_id == category.id%}
+                                  <li>
+                                    <a
+                                      href="/products/{{subcategory.id}}"
+                                      target="_self"
+                                      >{{subcategory.name}}
+                                    </a>
+                                  </li>
+                                  {% endif %}
+                                </ul>
+                                {%endfor%}
+                              </div>
+                            </div>
+                          </div>
+                          {%endfor%}
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="header-control">
+                <div class="header-control-inner">
+                  <div class="meta-dreaming">
+                    <div class="header-search furgan-dropdown">
+                      <div
+                        class="header-search-inner"
+                        data-furgan="furgan-dropdown"
+                      >
+                        <a href="#" class="link-dropdown block-link">
+                          <span class="flaticon-magnifying-glass-1"></span>
+                        </a>
+                      </div>
+                      <div class="block-search">
+                        <form
+                          role="search"
+                          action="/search"
+                          name="myform"
+                          method="get"
+                          class="form-search block-search-form furgan-live-search-form"
+                        >
+                          <div class="form-content search-box results-search">
+                            <div class="inner">
+                              <input
+                                required
+                                autocomplete="off"
+                                class="searchfield txt-livesearch input"
+                                placeholder="Search here..."
+                                type="text"
+                                id="autocomplete"
+                                name="q"
+                              />
+                            </div>
+                          </div>
+                          {% comment %}
+                          <input
+                            name="post_type"
+                            value="product"
+                            type="hidden"
+                          />
+                          <input
+                            name="taxonomy"
+                            value="product_cat"
+                            type="hidden"
+                          />
+                          <div class="category">
+                            <select
+                              title="product_cat"
+                              name="product_cat"
+                              id="64788262"
+                              class="category-search-option"
+                              tabindex="-1"
+                              style="display: none"
+                            >
+                              <option value="0">All Categories</option>
+                              <option class="level-0" value="light">
+                                Light
+                              </option>
+                              <option class="level-0" value="chair">
+                                Chair
+                              </option>
+                              <option class="level-0" value="table">
+                                Table
+                              </option>
+                              <option class="level-0" value="bed">Bed</option>
+                              <option class="level-0" value="new-arrivals">
+                                New arrivals
+                              </option>
+                              <option class="level-0" value="lamp">Lamp</option>
+                              <option class="level-0" value="specials">
+                                Specials
+                              </option>
+                              <option class="level-0" value="sofas">
+                                Sofas
+                              </option>
+                            </select>
+                          </div>
+                          {% endcomment %}
+                          <button type="submit" class="btn-submit">
+                            <span class="flaticon-magnifying-glass-1"></span>
+                          </button>
+                        </form>
+                        <!-- block search -->
+                      </div>
+                    </div>
+                    <div class="furgan-dropdown-close">x</div>
+                    <div
+                      class="menu-item block-user block-dreaming furgan-dropdown"
+                    >
+                      <a class="block-link">
+                        <span class="flaticon-profile"></span>
+                      </a>
+                      <ul class="sub-menu">
+                        {% comment %}
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--dashboard is-active"
+                        >
+                          <a href="#">Dashboard</a>
+                        </li>
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--orders"
+                        >
+                          <a href="#">Orders</a>
+                        </li>
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--downloads"
+                        >
+                          <a href="#">Downloads</a>
+                        </li>
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--edit-adchair"
+                        >
+                          <a href="#">Address</a>
+                        </li>
+                        {% endcomment %}
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--edit-account"
+                        >
+                          <a href="#">Account details</a>
+                        </li>
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--edit-account"
+                        >
+                          <a href="/wishlist">Wishlist</a>
+                        </li>
+                        {% comment %}
+                        <li
+                          class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--customer-logout"
+                        >
+                          <a href="#">Logout</a>
+                        </li>
+                        {% endcomment %} {% if user.is_authenticated %}
+                        <li>Hello, {{user.username}}</li>
+                        <li>
+                          <a
+                            href="{{request.get_path_info}}/logout"
+                            class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--customer-logout"
+                            >Logout</a
+                          >
+                        </li>
+
+                        {% else %}
+                        <li>
+                          <a href="/login">Login</a>
+                        </li>
+                        <li>
+                          <a href="/register">Register</a>
+                        </li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                    <!-- <div
+                      class="block-minicart block-dreaming furgan-mini-cart furgan-dropdown"
+                    >
+                      <div
+                        class="shopcart-dropdown block-cart-link"
+                        data-furgan="furgan-dropdown"
+                      >
+                        <a class="block-link link-dropdown" href="cart.html">
+                          <span class="flaticon-cart"></span>
+                          <span class="count">3</span>
+                        </a>
+                      </div>
+                      <div class="widget furgan widget_shopping_cart">
+                        <div class="widget_shopping_cart_content">
+                          <ul
+                            class="furgan-mini-cart cart_list product_list_widget"
+                          >
+                            <li class="furgan-mini-cart-item mini_cart_item">
+                              <a href="#" class="remove remove_from_cart_button"
+                                >×</a
+                              >
+                              <a href="#">
+                                <img
+                                  src="assets/images/apro134-1-600x778.jpg"
+                                  class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                                  alt="img"
+                                  width="600"
+                                  height="778"
+                                />T-shirt with skirt – Pink&nbsp;
+                              </a>
+                              <span class="quantity"
+                                >1 ×
+                                <span class="furgan-Price-amount amount"
+                                  ><span class="furgan-Price-currencySymbol"
+                                    >$</span
+                                  >150.00</span
+                                ></span
+                              >
+                            </li>
+                            <li class="furgan-mini-cart-item mini_cart_item">
+                              <a href="#" class="remove remove_from_cart_button"
+                                >×</a
+                              >
+                              <a href="#">
+                                <img
+                                  src="assets/images/apro1113-600x778.jpg"
+                                  class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                                  alt="img"
+                                  width="600"
+                                  height="778"
+                                />Alarm Clock&nbsp;
+                              </a>
+                              <span class="quantity"
+                                >1 ×
+                                <span class="furgan-Price-amount amount"
+                                  ><span class="furgan-Price-currencySymbol"
+                                    >$</span
+                                  >129.00</span
+                                ></span
+                              >
+                            </li>
+                            <li class="furgan-mini-cart-item mini_cart_item">
+                              <a href="#" class="remove remove_from_cart_button"
+                                >×</a
+                              >
+                              <a href="#">
+                                <img
+                                  src="assets/images/apro201-1-600x778.jpg"
+                                  class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                                  alt="img"
+                                  width="600"
+                                  height="778"
+                                />Chair AAC&nbsp;
+                              </a>
+                              <span class="quantity"
+                                >1 ×
+                                <span class="furgan-Price-amount amount"
+                                  ><span class="furgan-Price-currencySymbol"
+                                    >$</span
+                                  >139.00</span
+                                ></span
+                              >
+                            </li>
+                          </ul>
+                          <p class="furgan-mini-cart__total total">
+                            <strong>Subtotal:</strong>
+                            <span class="furgan-Price-amount amount"
+                              ><span class="furgan-Price-currencySymbol">$</span
+                              >418.00</span
+                            >
+                          </p>
+                          <p class="furgan-mini-cart__buttons buttons">
+                            <a href="cart.html" class="button furgan-forward"
+                              >Viewcart</a
+                            >
+                            <a
+                              href="checkout.html"
+                              class="button checkout furgan-forward"
+                              >Checkout</a
+                            >
+                          </p>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="table-layout: fixed" class="header-mobile">
+        <div class="header-mobile-left">
+          <div class="block-menu-bar">
+            <a class="menu-bar menu-toggle" href="#">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+          </div>
+          <div class="header-search furgan-dropdown">
+            <div class="header-search-inner" data-furgan="furgan-dropdown">
+              <a href="#" class="link-dropdown block-link">
+                <span class="flaticon-magnifying-glass-1"></span>
+              </a>
+            </div>
+            <div class="block-search">
+              <form
+                role="search"
+                method="get"
+                class="form-search block-search-form furgan-live-search-form"
+              >
+                <div class="form-content search-box results-search">
+                  <div class="inner">
+                    <input
+                      autocomplete="on"
+                      class="searchfield txt-livesearch input"
+                      name="s"
+                      value=""
+                      placeholder="Search here..."
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <input name="post_type" value="product" type="hidden" />
+                <input name="taxonomy" value="product_cat" type="hidden" />
+                <div class="category">
+                  <select
+                    title="product_cat"
+                    name="product_cat"
+                    class="category-search-option"
+                    tabindex="-1"
+                  >
+                    <option value="0">All Categories</option>
+                    <option class="level-0" value="light">Light</option>
+                    <option class="level-0" value="chair">Chair</option>
+                    <option class="level-0" value="table">Table</option>
+                    <option class="level-0" value="bed">Bed</option>
+                    <option class="level-0" value="new-arrivals">
+                      New arrivals
+                    </option>
+                    <option class="level-0" value="lamp">Lamp</option>
+                    <option class="level-0" value="specials">Specials</option>
+                    <option class="level-0" value="sofas">Sofas</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-submit">
+                  <span class="flaticon-magnifying-glass-1"></span>
+                </button>
+              </form>
+              <!-- block search -->
+            </div>
+          </div>
+        </div>
+
+        <div class="header-mobile-mid">
+          <div class="header-logo">
+            <a href="/"
+              ><img
+                alt="logo"
+                src="{%static 'assets/images/logo.png' %}"
+                class="logo"
+            /></a>
+          </div>
+        </div>
+        <div class="header-mobile-right">
+          <div class="header-control-inner">
+            <div class="meta-dreaming">
+              <div class="menu-item block-user block-dreaming furgan-dropdown">
+                <a class="block-link">
+                  <span class="flaticon-profile"></span>
+                </a>
+                <ul class="sub-menu">
+                  {% comment %}
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--dashboard is-active"
+                  >
+                    <a href="#">Dashboard</a>
+                  </li>
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--orders"
+                  >
+                    <a href="#">Orders</a>
+                  </li>
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--downloads"
+                  >
+                    <a href="#">Downloads</a>
+                  </li>
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--edit-adchair"
+                  >
+                    <a href="#">Address</a>
+                  </li>
+                  {% endcomment %}
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--edit-account"
+                  >
+                    <a href="#">Account details</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li>Hello, {{user.first_name}}</li>
+                  <li
+                    class="menu-item furgan-MyAccount-navigation-link furgan-MyAccount-navigation-link--customer-logout"
+                  >
+                    <a href="{{request.get_path_info}}/logout">Logout</a>
+                  </li>
+                  {% else %}
+                  <li>
+                    <a href="/login">Login</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+              <!-- <div
+                class="block-minicart block-dreaming furgan-mini-cart furgan-dropdown"
+              >
+                <div
+                  class="shopcart-dropdown block-cart-link"
+                  data-furgan="furgan-dropdown"
+                >
+                  <a class="block-link link-dropdown" href="cart.html">
+                    <span class="flaticon-cart"></span>
+                    <span class="count">3</span>
+                  </a>
+                </div>
+                <div class="widget furgan widget_shopping_cart">
+                  <div class="widget_shopping_cart_content">
+                    <ul class="furgan-mini-cart cart_list product_list_widget">
+                      <li class="furgan-mini-cart-item mini_cart_item">
+                        <a href="#" class="remove remove_from_cart_button">×</a>
+                        <a href="#">
+                          <img
+                            src="assets/images/apro134-1-600x778.jpg"
+                            class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                            alt="img"
+                            width="600"
+                            height="778"
+                          />T-shirt with skirt – Pink&nbsp;
+                        </a>
+                        <span class="quantity"
+                          >1 ×
+                          <span class="furgan-Price-amount amount"
+                            ><span class="furgan-Price-currencySymbol">$</span
+                            >150.00</span
+                          ></span
+                        >
+                      </li>
+                      <li class="furgan-mini-cart-item mini_cart_item">
+                        <a href="#" class="remove remove_from_cart_button">×</a>
+                        <a href="#">
+                          <img
+                            src="assets/images/apro1113-600x778.jpg"
+                            class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                            alt="img"
+                            width="600"
+                            height="778"
+                          />Alarm Clock&nbsp;
+                        </a>
+                        <span class="quantity"
+                          >1 ×
+                          <span class="furgan-Price-amount amount"
+                            ><span class="furgan-Price-currencySymbol">$</span
+                            >129.00</span
+                          ></span
+                        >
+                      </li>
+                      <li class="furgan-mini-cart-item mini_cart_item">
+                        <a href="#" class="remove remove_from_cart_button">×</a>
+                        <a href="#">
+                          <img
+                            src="assets/images/apro201-1-600x778.jpg"
+                            class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                            alt="img"
+                            width="600"
+                            height="778"
+                          />Chair AAC&nbsp;
+                        </a>
+                        <span class="quantity"
+                          >1 ×
+                          <span class="furgan-Price-amount amount"
+                            ><span class="furgan-Price-currencySymbol">$</span
+                            >139.00</span
+                          ></span
+                        >
+                      </li>
+                    </ul>
+                    <p class="furgan-mini-cart__total total">
+                      <strong>Subtotal:</strong>
+                      <span class="furgan-Price-amount amount"
+                        ><span class="furgan-Price-currencySymbol">$</span
+                        >418.00</span
+                      >
+                    </p>
+                    <p class="furgan-mini-cart__buttons buttons">
+                      <a href="cart.html" class="button furgan-forward"
+                        >Viewcart</a
+                      >
+                      <a
+                        href="checkout.html"
+                        class="button checkout furgan-forward"
+                        >Checkout</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+    <footer id="footer" class="footer style-06">
+      <div class="section-036">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-4">
+              <div class="logo-footer">
+                <img
+                  src="{%static 'assets/images/logo.png' %}"
+                  class="az_single_image-img attachment-full"
+                  alt="img"
+                />
+              </div>
+              <div class="furgan-listitem style-01">
+                <div class="listitem-inner">
+                  <ul class="listitem-list">
+                    <li>
+                      <a href="mailto:contact@yourcompany.com" target="_self">
+                        <span class="icon"
+                          ><span class="flaticon-email"></span
+                        ></span>
+                        contact@yourcompany.com
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="furgan-socials style-01">
+                <div class="content-socials">
+                  <ul class="socials-list">
+                    <li>
+                      <a href="https://facebook.com/" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/" target="_blank">
+                        <i class="fa fa-telegram"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.pinterest.com/" target="_blank">
+                        <i class="fa fa-pinterest-p"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <div class="furgan-listitem style-01">
+                <div class="listitem-inner">
+                  <h4 class="title">Pages</h4>
+                  <ul class="listitem-list">
+                    <li>
+                      <a href="/"> Home </a>
+                    </li>
+                    <li>
+                      <a href="/products" target="_self"> All Products </a>
+                    </li>
+                    <li>
+                      <a href="/login" target="_self"> Login </a>
+                    </li>
+                    <li>
+                      <a href="/register" target="_self"> Register </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-2">
+              <div class="furgan-listitem style-01">
+                <div class="listitem-inner">
+                  <h4 class="title">Information</h4>
+                  <ul class="listitem-list">
+                    <li>
+                      <a href="#" target="_self"> Privacy Policy </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_self"> Customer Service </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_self"> Contact </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_self"> Sitemap </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <div class="furgan-newsletter style-04">
+                <div class="newsletter-inner">
+                  <div class="newsletter-info">
+                    <div class="newsletter-wrap">
+                      <h3 class="title">Newsletter</h3>
+                      <h4 class="subtitle">Get New Design Notifications</h4>
+                    </div>
+                  </div>
+                  <div class="newsletter-form-wrap">
+                    <div class="newsletter-form-inner">
+                      <input
+                        class="email email-newsletter"
+                        name="email"
+                        placeholder="Enter your email ..."
+                        type="email"
+                      />
+                      <a href="#" class="button btn-submit submit-newsletter">
+                        <span class="text">Subscribe</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-016">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p>
+                © Copyright 2020 <a href="#">TrippleRun</a>. All Rights
+                Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-device-mobile">
+      <div class="wapper">
+        <div class="footer-device-mobile-item device-home">
+          <a href="/">
+            <span class="icon">
+              <i class="fa fa-home" aria-hidden="true"></i>
+            </span>
+            Home
+          </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-wishlist">
+          <a href="wishlist.html">
+            <span class="icon">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </span>
+            Wishlist
+          </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-cart">
+          <a href="cart.html">
+            <span class="icon">
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              <span class="count-icon"> 0 </span>
+            </span>
+            <span class="text">Cart</span>
+          </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-user">
+          <a href="/login">
+            <span class="icon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>
+            Account
+          </a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="backtotop active">
+      <i class="fa fa-angle-double-up"></i>
+    </a>
+    <script src="{%static 'assets/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{%static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{%static 'assets/js/chosen.min.js' %}"></script>
+    <script src="{%static 'assets/js/countdown.min.js' %}"></script>
+    <script src="{%static 'assets/js/jquery.scrollbar.min.js' %}"></script>
+    <script src="{%static 'assets/js/lightbox.min.js' %}"></script>
+    <script src="{%static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{%static 'assets/js/slick.js' %}"></script>
+    <script src="{%static 'assets/js/jquery.zoom.min.js' %}"></script>
+    <script src="{%static 'assets/js/threesixty.min.js' %}"></script>
+    <script src="{%static 'assets/js/jquery-ui.min.js' %}"></script>
+    <script src="{%static 'assets/js/mobilemenu.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM"></script>
+    <script src="{%static 'assets/js/functions.js' %}"></script>
+    <script type="text/javascript">
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+      togglePassword.addEventListener("click", function (e) {
+        // toggle the type attribute
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        // toggle the eye slash icon
+        this.classList.toggle("fa-eye-slash");
+      });
+    </script>
+    <script type="text/javascript">
+      const togglePassword2 = document.querySelector("#togglePassword2");
+      const password2 = document.querySelector("#password2");
+      togglePassword2.addEventListener("click", function (e) {
+        // toggle the type attribute
+        const type =
+          password2.getAttribute("type") === "password" ? "text" : "password";
+        password2.setAttribute("type", type);
+        // toggle the eye slash icon
+        this.classList.toggle("fa-eye-slash");
+      });
+    </script>
+    {% block script %} {% endblock script %}
+  </body>
+</html>

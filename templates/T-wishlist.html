@@ -1,0 +1,104 @@
+{% extends 'T-base.html' %} {% block content %}{% load cart_tag %} {% comment %}
+dqdwehchwsv {% endcomment %}{% load static%}
+<div class="banner-wrapper has_background">
+  {% comment %}
+  <img
+    src="{%static 'assets/images/banner-for-all2.jpg' %}"
+    class="img-responsive attachment-1920x447 size-1920x447"
+    alt="img"
+  />
+  {% endcomment %}
+  <div class="banner-wrapper-inner">
+    <h1 class="page-title">Wishlist</h1>
+    <div
+      role="navigation"
+      aria-label="Breadcrumbs"
+      class="breadcrumb-trail breadcrumbs"
+    >
+      <ul class="trail-items breadcrumb">
+        <li class="trail-item trail-begin">
+          <a href="/"><span>Home</span></a>
+        </li>
+        <li class="trail-item trail-end active"><span>Wishlist</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<main class="site-main main-container no-sidebar">
+  <div class="container">
+    <div class="row">
+      <div class="main-content col-md-12">
+        <div class="page-main-content">
+          <form id="yith-wcwl-form" class="furgan-cart-form">
+            <!-- TITLE -->
+            <!-- WISHLIST TABLE -->
+            <table
+              class="shop_table shop_table_responsive cart furgan-cart-form__contents"
+              cellspacing="0"
+            >
+              <thead>
+                <tr>
+                  <th class="product-remove">&nbsp;</th>
+                  <th class="product-thumbnail">&nbsp;</th>
+                  <th class="product-name">Name</th>
+                  <th class="product-quantity">Design Code</th>
+                  <th class="product-price">Price</th>
+                  <th class="product-add-to-cart">Detais</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key,product in request.session.cart.items %}
+                <tr id="yith-wcwl-row-29" data-row-id="29">
+                  <form>
+                    <td class="product-remove">
+                      <a
+                        href="{% url 'item_clear' product.product_id %}"
+                        class="btn btn-danger"
+                      >
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </form>
+                  <td class="product-thumbnail">
+                    <a href="/singal-products/{{key}}">
+                      <img
+                        style="width: 100%; object-fit: contain"
+                        src="{{product.image}}"
+                        class="attachment-furgan_thumbnail size-furgan_thumbnail"
+                        alt="img"
+                        width="270"
+                        height="350"
+                      />
+                    </a>
+                  </td>
+                  <td class="product-name">
+                    <a href="/singal-products/{{key}}">{{product.name}}</a>
+                  </td>
+                  <td class="product-price">
+                    <span class="furgan-Price-amount amount"
+                      >{{product.design_code}}</span
+                    >
+                  </td>
+                  <td class="product-price">
+                    <span class="wishlist-in-stock"> Free </span>
+                  </td>
+                  <td class="product-add-to-cart product-price">
+                    <a
+                      href="/singal-products/{{product.id}}"
+                      class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt"
+                      rel="nofollow"
+                    >
+                      Download</a
+                    >
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

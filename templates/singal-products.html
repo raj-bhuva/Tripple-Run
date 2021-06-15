@@ -1,0 +1,306 @@
+{% extends 'base.html' %} {% block content %}{% load static%} {% static "img" as basrurl %}{% load socialaccount %}
+{% comment %} <!DOCTYPE html> {% endcomment %}
+{% comment %} <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products | Red Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'responsiv.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="/"
+            ><img src="{% static 'img/raj.png' %}" width="125px"
+          /></a>
+        </div>
+        <nav class="nav">
+          <input type="checkbox" id="toggle" />
+          <label for="toggle" class="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="/products">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Account</a></li>
+          </ul>
+          <img src="{% static 'img/cart.png'%}" width="30px" height="30px" />
+        </nav>
+      </div>
+    </div> {% endcomment %}
+
+    <!-- -------singal Products details-------- -->
+
+    <div class="small-container singal-products">
+      <div class="row">
+        <div class="small-img-col">
+          <img src="{{data.img.url}}" width="100%" id="main-img" />
+          {% comment %}
+          <div class="small-img-row">
+            <div class="small-img-col">
+              <img src="img/gallery-1.jpg" width="100%" class="small-img" />
+            </div>
+            <div class="small-img-col">
+              <img src="img/gallery-2.jpg" width="100%" class="small-img" />
+            </div>
+            <div class="small-img-col">
+              <img src="img/gallery-3.jpg" width="100%" class="small-img" />
+            </div>
+            <div class="small-img-col">
+              <img src="img/gallery-4.jpg" width="100%" class="small-img" />
+            </div>
+          </div>
+          {% endcomment %}
+        </div>
+
+        <div class="col-2">
+          <h1>{{data.name}}</h1>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>Design Code : <b>{{data.design_code}}</b></p>
+          <p>Area: <b>{{data.area}}</b></p>
+          <p>Needle: <b>{{data.needle}}</b></p>
+          <p>Stitches: <b>{{data.stitch}}</b></p>
+          <p>Design Format: <b>{{data.design_type}}</b></p>
+          {% comment %}
+          <select>
+            <option>Select Size</option>
+            <option>XXL</option>
+            <option>XL</option>
+            <option>Large</option>
+            <option>Medium</option>
+            <option>Small</option>
+          </select>
+          {% endcomment %}
+
+          <h3>Other Details:</h3>
+          <li>
+          <small
+            >{{data.description}}</small
+          ></li></br>
+          
+          {% if user.is_authenticated %}
+            <a href="{{data.file.url}}" download class="btn-2">Download</a>
+          {% else %}
+            <a id="myBtn3" class="btn-2">Download</a>
+            {% comment %} <a id="myBtn">Login</a> {% endcomment %}
+            <div id="myModal3" class="modal">
+               <div class="signup">
+                    
+                    <div class="signup-classic">
+                      <span id="close-modal" class="close">&times;</span>
+                      <h1 class="ragister_title">Log in</h1>
+                      
+                      <form
+                        action="{{request.get_path_info}}/login"
+                        method="POST"
+                        class="form"
+                        id="login-form"
+                      >
+                        {% csrf_token %}
+                        <fieldset class="username">
+                          <input
+                            type="text"
+                            name="username"
+                            placeholder="User name"
+                          />
+                        </fieldset>
+
+                        {% comment %} <fieldset class="email">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                          />
+                        </fieldset> {% endcomment %}
+                        
+
+                        <fieldset class="password">
+                          <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                          />
+                        </fieldset>
+                        {%for message in messages %} {{message}} {% endfor %}
+                        <button type="submit" class="btn">
+                          <strong>Log in</strong>
+                        </button>
+                      </form>
+                      <div class="signup-title">
+                        <p>or signin with</p>
+                      </div>
+                      <div class="signup-connect">
+                        <a href="#" class="btn-login btn-facebook"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                        <a href="#" class="btn-login btn-twitter"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                        <a href="{% provider_login_url "google" %}" class="btn-login btn-google"
+                          ><i class="fa fa-google"></i>
+                        </a>
+                        <a href="#" class="btn-login btn-linkedin"
+                          ><i class="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          {% endif%}
+        </div>
+      </div>
+
+      <div class="small-container">
+        <div class="row row-2">
+          <h2>Related Products</h2>
+          <a href="/products"><p>View More &#8594;</p></a>
+        </div>
+      </div>
+
+      <div class="row">
+        {% for product in all %}
+        <div class="col-4">
+          <a href="/singal-products/{{product.id}}">
+          <img src="{{product.img.url}}" /></a>
+          <h4>{{product.name}}</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>Price : {{product.design_code}} Rs/-</p>
+        </div>
+        {% endfor %} {% comment %}
+        <div class="col-4">
+          <img src="img/product-2.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-3.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-4.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+    <!-- --------footer----- -->
+    {% comment %} <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h4>Download Our App</h4>
+            <p>Download App for Android and ios mobile phone.</p>
+            <div class="appstore">
+              <img src="{% static 'img/app-store.png' %}" width="120px" />
+              <img src="{% static  'img/play-store.png' %}" width="120px" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="{% static 'img/logo-white.png' %}" width="120px" />
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
+              dolores, aliquid
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h4>Useful Links</h4>
+            <hr />
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h4>Follow Us</h4>
+            <hr />
+            <ul>
+              <li><i class="fa fa-facebook"></i>Facebook</li>
+              <li><i class="fa fa-twitter"></i>Twitter</li>
+              <li><i class="fa fa-instagram"></i>InstaGram</li>
+
+              <li><i class="fa fa-youtube-play"></i>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">copyright 2020 - Smoak Network</p>
+      </div>
+    </footer> {% endcomment %}
+    
+  {% comment %} </body>
+</html> {% endcomment %}
+{% endblock %}
+{% block script%}
+<script>
+      // ---------js for porduct gallery--------
+      var mainImg = document.getElementById("main-img");
+      {% comment %} var smallImg = document.getElementsByClassName("small-img");
+
+      smallImg[0].onclick = function () {
+        mainImg.src = smallImg[0].src;
+      };
+      smallImg[1].onclick = function () {
+        mainImg.src = smallImg[1].src;
+      };
+      smallImg[2].onclick = function () {
+        mainImg.src = smallImg[2].src;
+      };
+      smallImg[3].onclick = function () {
+        mainImg.src = smallImg[3].src;
+      }; {% endcomment %}
+    </script>
+<script src="{% static 'login/download-button-login.js' %}"></script>
+{% endblock script%}

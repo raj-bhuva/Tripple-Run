@@ -1,0 +1,231 @@
+{% load static%}{% static "img" as basrurl %} {% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products | Red Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'login/newlogin.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'responsiv.css' %}" />
+
+
+  </head>
+  <body>
+    <header>
+      <div class="container collapse navbar-collapse" id="main-navbar">
+        <div class="navbar nav navbar-nav">
+          <div class="logo">
+            <a href="/"
+              ><img src="{% static  'img/raj.png' %}" width="125px"
+            /></a>
+          </div>
+          <nav class="nav navbar-nav">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle" class="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+            <ul class="nav-list navbar navbar-default">
+              <li><a class="active" href="/">Home</a></li>
+              <li><a href="/products">Products</a></li>
+              {% comment %}
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              {% endcomment %} {% if user.is_authenticated %}
+              <li>Hello, {{user.first_name}}</li>
+              <li><a href="{{request.get_path_info}}/logout">Logout</a></li>
+              {% else %}
+              <li>
+                <a id="myBtn">Login</a>
+                <div id="myModal" class="modal">
+                  
+                  <div class="signup">
+                    
+                    <div class="signup-classic">
+                      <span id="close-modal" class="close">&times;</span>
+                      <h1 class="ragister_title">Log in</h1>
+                      
+                      <form
+                        action="{{request.get_path_info}}/login"
+                        method="POST"
+                        class="form"
+                        id="login-form"
+                      >
+                        {% csrf_token %}
+                        <fieldset class="username">
+                          <input
+                            type="text"
+                            name="username"
+                            placeholder="User name"
+                          />
+                        </fieldset>
+
+                        {% comment %} <fieldset class="email">
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                          />
+                        </fieldset> {% endcomment %}
+                        
+
+                        <fieldset class="password">
+                          <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                          />
+                        </fieldset>
+                        {%for message in messages %} {{message}} {% endfor %}
+                        <button type="submit" class="btn">
+                          <strong>Log in</strong>
+                        </button>
+                      </form>
+                      <div class="signup-title">
+                        <p>or signin with</p>
+                      </div>
+                      <div class="signup-connect">
+                        <a href="#" class="btn-login btn-facebook"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                        <a href="#" class="btn-login btn-twitter"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                        <a href="{% provider_login_url "google" %}" class="btn-login btn-google"
+                          ><i class="fa fa-google"></i>
+                        </a>
+                        <a href="#" class="btn-login btn-linkedin"
+                          ><i class="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a id="myBtn1">Register</a>
+                <div id="myModal1" class="modal">
+                  <div class="signup">
+                    <div class="signup-classic">
+                      <span class="close">&times;</span>
+                      <h1 class="ragister_title">Register</h1>
+                      
+                      <form class="form">
+                        <fieldset class="username">
+                          <input type="text" placeholder="username" />
+                        </fieldset>
+                        <fieldset class="email">
+                          <input type="email" placeholder="email" />
+                        </fieldset>
+                        <fieldset class="password">
+                          <input type="password" placeholder="password" />
+                        </fieldset>
+                        <fieldset class="password">
+                          <input type="password" placeholder="comfirm password" />
+                        </fieldset>
+                        <button type="submit" class="btn">sign up</button>
+                      </form>
+                      <div class="signup-title">
+                        <p>or signup with</p>
+                      </div>
+                      <div class="signup-connect">
+                        <a href="#" class="btn-login btn-facebook"
+                          ><i class="fa fa-facebook"></i
+                        ></a>
+                        <a href="#" class="btn-login btn-twitter"
+                          ><i class="fa fa-twitter"></i
+                        ></a>
+                        <a href="{% provider_login_url "google" %}" class="btn-login btn-google"
+                          ><i class="fa fa-google"></i>
+                        </a>
+                        <a href="#" class="btn-login btn-linkedin"
+                          ><i class="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              {% endif %}
+            
+              <img src="{% static 'img/cart.png' %}" width="30px" height="30px" />
+            </ul>
+          </nav>
+        </div>
+        {% comment %} <div class="row">
+          <div class="col-2">
+            <h1>Give Your Workout <br />A New Style!</h1>
+            <p>
+              Success isn't always greatness. It's about Consistency.
+              Consistent<br />
+              hard work gains success. Greatness will come
+            </p>
+            <a href="/products" class="btn">Explore Now &#8594;</a>
+          </div>
+          <div class="col-2">
+            <img src="{% static 'img/image1.png' %}" />
+          </div>
+        </div> {% endcomment %}
+      </div>
+    
+    {% block content %} {% endblock %}
+    </header>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h4>Download Our App</h4>
+            <p>Download App for Android and ios mobile phone.</p>
+            <div class="appstore">
+              <img src="{% static 'img/app-store.png' %}" width="120px" />
+              <img src="{% static 'img/play-store.png' %}" width="120px" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="{% static 'img/raj.png' %}" width="120px" />
+            <p>Download Latest & attractive Designs FREE</p>
+            <p style="color: #a0ce5b">@TRIPPLE RUN</p>
+          </div>
+          <div class="footer-col-3">
+            <h4>Useful Links</h4>
+            <hr />
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/products">All Products</a></li>
+              <li><a href="#">Policy</a></li>
+              <li><a href="#">Term&Condition</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h4>Follow Us</h4>
+            <hr />
+            <ul>
+              <li><i class="fa fa-facebook"></i>Facebook</li>
+              <li><i class="fa fa-twitter"></i>Twitter</li>
+              <li><i class="fa fa-instagram"></i>InstaGram</li>
+
+              <li><i class="fa fa-youtube-play"></i>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">copyright 2020 - Tripple Run</p>
+      </div>
+    </footer>
+    {% block script%}
+    {% endblock script%}
+    <script src="{% static 'login/login.js' %}"></script>
+    {% comment %} <script src="{% static 'login/download-button-login.js' %}"></script> {% endcomment %}
+  </body>
+</html>

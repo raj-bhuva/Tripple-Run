@@ -1,0 +1,221 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* height: 100%; */
+  font-family: Open Sans;
+}
+
+body {
+  background: #f4fde7;
+}
+
+.ragister_title {
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+}
+
+.btn {
+  display: inline-block;
+  background: #8dc544;
+  color: #fff;
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 30px;
+}
+.btn:hover {
+  background: #b0e070;
+}
+
+/*--------------------
+Buttons
+--------------------*/
+.btn-login {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  border-radius: 50%;
+}
+
+.btn-login .fa {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.btn-facebook {
+  background-color: #3b5897;
+}
+
+.btn-twitter {
+  background-color: #53abee;
+}
+
+.btn-google {
+  background-color: #de4e3b;
+}
+
+.btn-linkedin {
+  background-color: #00a1db;
+}
+
+/*--------------------
+Form
+--------------------*/
+.form fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+  position: relative;
+}
+
+.form fieldset input {
+  width: 100%;
+  height: 48px;
+  color: #333333;
+  padding: 15px 40px 15px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+
+.form button {
+  width: 100%;
+
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------
+Signup
+--------------------*/
+.signup {
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 30%;
+  /* background: white; */
+  border-radius: 10px;
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.signup-connect,
+.signup-classic {
+  width: 100%;
+  padding: 10px 50px;
+  margin: auto;
+}
+
+.signup-connect {
+  /* background: linear-gradient(134deg, #fbce50, #e08106); */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.signup-connect h1 {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.signup-classic h2 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 23px;
+  margin-bottom: 43px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.signup-classic fieldset::after {
+  content: "\f007";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 15px;
+  top: 17px;
+  z-index: 2;
+  width: 20px;
+  color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.signup-classic fieldset.email::after {
+  content: "\f0e0";
+}
+
+.signup-classic fieldset.password::after {
+  content: "\f023";
+}
+
+.signup-title {
+  text-align: center;
+}
+
+/* mobaile */
+@media only screen and (max-width: 700px) {
+  .signup {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .signup-connect,
+  .signup-classic {
+    width: 100%;
+  }
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

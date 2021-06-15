@@ -1,0 +1,456 @@
+{% extends 'base.html' %} {% block content %} {% load static%}{% static "img" as basrurl %} {% comment %}
+<!DOCTYPE html> {% endcomment %} {% comment %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products | Red Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'responsiv.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="index"
+            ><img src="{% static 'img/logo.png' %}" width="125px"
+          /></a>
+        </div>
+        <nav class="nav">
+          <input type="checkbox" id="toggle" />
+          <label for="toggle" class="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a class="active" href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Account</a></li>
+          </ul>
+          <img src="{% static 'img/cart.png' %}" width="30px" height="30px" />
+        </nav>
+      </div>
+    </div>
+    {% endcomment %}
+
+    <!-- -------All Products-------- -->
+
+    <div class="small-container">
+      <div class="row row-2">
+        <h2>All Products</h2>
+        <select>
+          <option>Default Shorting</option>
+          <option>Short by price</option>
+          <option>Short by popularity</option>
+          <option>Short by rating</option>
+          <option>Short by sale</option>
+        </select>
+      </div>
+
+      <div class="col-lg-3 mx-auto">
+        <div class="list-group">
+          <a href="/products" class="list-group-item list-group-item-action"
+            >All Products</a
+          ></br>
+
+          {% for category in categories %}
+          <a
+            href="/products/{{category.id}}"
+            class="list-group-item list-group-item-action"
+            >{{category.name}}</a
+          ></br>
+          {% endfor %}
+           sub</br>
+          {% for subcategory in subcategories %}
+          <a
+            href="/products/{{subcategory.id}}"
+            class="list-group-item list-group-item-action"
+            >{{subcategory.name}}</a
+          ></br>
+          {% endfor %}
+          
+          subsubcategories</br>
+          {% for subcategory in subsubcategories %}
+          <a
+            href="/products/{{subcategory.id}}"
+            class="list-group-item list-group-item-action"
+            >{{subcategory.name}}</a
+          ></br>
+          {% endfor %}
+          {% comment %} for particular</br>
+          {% for category in categories %}
+            {% for subcategory in subcategories %}
+              {% if subcategory.parent_id == category.id %}
+                </br>sub category of {{category}} = {{subcategory.name}}
+                  {% for subsubcategory in subsubcategories %}
+                    {% if subsubcategory.parent_id == subcategory.id %}
+                        </br>subsub category of {{category}} = {{subsubcategory.name}}
+                    {% endif %}
+                  {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %} {% endcomment %}
+
+
+
+          {% comment %} mrnu drop down {% endcomment %}
+          {% comment %} <div id="container">
+            <nav>
+              <ul>
+                <li><a href="#">Web Development</a>
+                  <ul>
+                    {% for category in categories %}
+
+                        <li><a href="#">{{category.name}}</a>
+                          {% for subcategory in subcategories %}
+                            {% if subcategory.parent_id == category.id %}
+                              <ul>
+                              
+                                <li><a href="#">{{subcategory.name}}</a>
+                                  {% for subsubcategory in subsubcategories %}
+                                    {% if subsubcategory.parent_id == subcategory.id %}
+                                      <ul>
+                                        <li><a href="#">{{subsubcategory.name}}</a></li>
+                                      </ul>
+                                    {% endif %}
+                                  {% endfor %}
+                                </li>
+                              </ul>
+                            {% endif %}
+                          {%endfor%}
+                        </li>
+                    {%endfor%}  
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div> {% endcomment %}
+          {% comment %} <style>
+            body {
+                  background: #212121;
+                  font-size:22px;
+                  line-height: 32px;
+                  color: #ffffff;
+                  word-wrap:break-word !important;
+                    font-family: 'Quicksand', sans-serif;
+                  margin: 0;
+                  padding: 0;
+                }
+                h1 {
+                  font-size: 60px;
+                  text-align: center;
+                  color: #FFF;
+                  margin-top: 150px;
+                    font-family: 'Russo One', sans-serif;
+                  }
+                h1 span {
+                  color: #FF4649;
+                }
+                #container {
+                  margin: 0 auto;
+                }
+                
+                nav {
+                  margin: 35px 0;
+                  background-color: #FF4649;
+                }
+                nav ul {
+                  padding: 0;
+                        margin: 0;
+                  list-style: none;
+                  position: relative;
+                  }	
+                nav ul li {
+                  display:inline-block;
+                  background-color: #FF4649;
+                  }
+                nav a {
+                  display:block;
+                  padding:0 10px;	
+                  color:#FFF;
+                  font-size:20px;
+                  line-height: 60px;
+                  text-decoration:none;
+                }
+                nav a:hover { 
+                  background-color: #333; 
+                }
+                nav ul ul {
+                  display: none;
+                  position: absolute; 
+                  top: 60px; 	
+                }	
+                nav ul li:hover > ul {
+                  display:inherit;
+                }	
+                nav ul ul li {
+                  width:230px;
+                  float:none;
+                  display:list-item;
+                  position: relative;
+                }
+                nav ul ul ul li {
+                  position: relative;
+                  top:-60px; 
+                  left:230px;
+                }
+                nav ul ul li {
+                  border: 1px solid white;
+                }	
+                li > a:after { content:  ' ▼'; }
+                li > a:only-child:after { content: ''; }
+          </style> {% endcomment %}
+        </div>
+      </div>
+
+      <div class="row">
+        {% for product in products %}
+        <div class="col-4">
+          <a href="/singal-products/{{product.id}}"
+            ><img src="{{product.img.url}}"
+          /></a>
+          <h4>{{product.name}}</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>Design Code: <strong>{{product.design_code}}</strong></p>
+        </div>
+        {% endfor %} {% comment %}
+        <div class="col-4">
+          <img src="{% static 'img/product-2.jpg' %}" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-3.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-4.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-5.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-6.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-7.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-8.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-9.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-10.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-11.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        <div class="col-4">
+          <img src="img/product-12.jpg" />
+          <h4>Red Printed T-shirt</h4>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+        </div>
+        {% endcomment %}
+      </div>
+
+       
+       {% comment %} <div class="page-btn">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+
+        <span>&#8594;</span>
+      </div>  {% endcomment %}
+
+      <div class="page-btn">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              {% if products.has_previous %}
+              <li class="page-btn">
+                <a class="page-link" href="?page={{products.previous_page_number}}" aria-label="Previous">
+                  <span aria-hidden="true">&#8592;</span>
+                </a>
+              </li>
+              
+              <li class="page-btn"><a class="page-link" href="?page={{products.previous_page_number}}"><span>{{products.previous_page_number}}</span></a></li>
+              {% endif %}
+              <li class="page-btn "><a class="page-link" href="#"><span class= "active">{{products.number}}</span></a></li>
+              {% if products.has_next %}
+              <li class="page-btn  "><a class="page-link" href="?page={{products.next_page_number}}"><span>{{products.next_page_number}}</span></a></li>
+              
+              <li class="page-btn">
+                <a class="page-link" href="?page={{products.next_page_number}}" aria-label="Next">
+                  <span aria-hidden="true">&#8594;</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+
+    </div>
+
+    <!-- --------footer----- -->
+    {% comment %}
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col-1">
+            <h4>Download Our App</h4>
+            <p>Download App for Android and ios mobile phone.</p>
+            <div class="appstore">
+              <img src="{% static 'img/app-store.png' %}" width="120px" />
+              <img src="{% static 'img/play-store.png' %}" width="120px" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="{% static 'img/logo-white.png' %}" width="120px" />
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
+              dolores, aliquid
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h4>Useful Links</h4>
+            <hr />
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h4>Follow Us</h4>
+            <hr />
+            <ul>
+              <li><i class="fa fa-facebook"></i>Facebook</li>
+              <li><i class="fa fa-twitter"></i>Twitter</li>
+              <li><i class="fa fa-instagram"></i>InstaGram</li>
+
+              <li><i class="fa fa-youtube-play"></i>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">copyright 2020 - Smoak Network</p>
+      </div>
+    </footer>
+  </body>
+</html>
+{% endcomment %} {% endblock %}

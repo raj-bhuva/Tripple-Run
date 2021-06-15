@@ -1,0 +1,883 @@
+{% extends 'T-base.html' %} {% block content %} {% load static%}{% comment %}
+for social login {% endcomment %} {% load socialaccount %} {% comment %} {%
+providers_media_js %} {% endcomment %}
+
+<div class="fullwidth-template">
+  <div class="slide-home-01">
+    <div
+      class="
+        response-product
+        product-list-owl
+        owl-slick
+        equal-container
+        better-height
+      "
+      data-slick='{"arrows":false,"slidesMargin":0,"dots":true,"infinite":false,"speed":300,"slidesToShow":1,"rows":1}'
+      data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":1,"slidesMargin":"0"}},{"breakpoint":768,"settings":{"slidesToShow":1,"slidesMargin":"0"}},{"breakpoint":992,"settings":{"slidesToShow":1,"slidesMargin":"0"}},{"breakpoint":1200,"settings":{"slidesToShow":1,"slidesMargin":"0"}},{"breakpoint":1500,"settings":{"slidesToShow":1,"slidesMargin":"0"}}]'
+    >
+      {% for slider in sliders%}
+      <div class="slide-wrap">
+        <img src="{{slider.sliderimg.url}}" alt="image" />
+        <div class="slide-info">
+          <div class="container">
+            <div class="slide-inner">
+              <h5>{{slider.first_small_heading}}</h5>
+              <h1>{{slider.second_heading}}</h1>
+              <h2>{{slider.third_heading}}e</h2>
+              <a href="{{slider.link}}">{{slider.button_text}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% comment %}
+      <div class="slide-wrap">
+        <img src="{%static  'assets/images/slide11new.jpg' %}" alt="image" />
+        <div class="slide-info">
+          <div class="container">
+            <div class="slide-inner">
+              <h5>Best Selling</h5>
+              <h1><span>Trend</span> White</h1>
+              <h2>Light</h2>
+              <a href="#">Shop now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-wrap">
+        <img src="{%static  'assets/images/slide333.jpg' %}" alt="image" />
+        <div class="slide-info">
+          <div class="container">
+            <div class="slide-inner">
+              <h5>This Week Only</h5>
+              <h1>Mega Sale</h1>
+              <h2>50% Off</h2>
+              <a href="#">Shop now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endcomment %}
+    </div>
+  </div>
+  <!-- category wise products------------------------------------------------------------------------------------------------ -->
+  {% comment %}
+  <main class="site-main main-container no-sidebar">
+    <div class="container">
+      <div class="furgan-categories style-01">
+        <div
+          class="categories-list-owl owl-slick equal-container better-height"
+          data-slick='{"arrows":true,"slidesMargin":30,"dots":false,"infinite":false,"speed":300,"slidesToShow":3,"rows":1}'
+          data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":3,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":3,"slidesMargin":"30"}}]'
+        >
+          {% for category in categories %}
+          <div
+            class="
+              categories-item
+              rows-space-0
+              post-740
+              page
+              type-page
+              status-publish
+              hentry
+            "
+          >
+            <div class="categories-inner">
+              <figure class="categories-thumb">
+                <a href="/products/{{category.id}}" tabindex="-1">
+                  <img
+                    src="{{category.img.url}}"
+                    class="img-responsive attachment-370x370 size-370x370"
+                    alt="img"
+                    width="370"
+                    height="370"
+                  />
+                </a>
+              </figure>
+              <h3 class="title">
+                <a href="#" tabindex="-1"> {{category.name}} </a>
+              </h3>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+  {% endcomment %}
+  <!-- category wise products------------------------------------------------------------------------------------------------ -->
+  {% comment %}
+  <main class="site-main main-container no-sidebar">
+    <div class="section-043">
+      <div class="container">
+        <div class="furgan-categories style-02">
+          <div
+            class="categories-list-owl owl-slick equal-container better-height"
+            data-slick='{"arrows":true,"slidesMargin":30,"dots":false,"infinite":false,"speed":300,"slidesToShow":3,"rows":1}'
+            data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":3,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":3,"slidesMargin":"30"}}]'
+          >
+            {% for category in categories %}
+            <div
+              class="
+                categories-item
+                rows-space-0
+                post-740
+                page
+                type-page
+                status-publish
+                hentry
+              "
+            >
+              <div class="categories-inner">
+                <figure class="categories-thumb">
+                  <a href="/products/{{category.id}}" tabindex="-1">
+                    <img
+                      src="{{category.img.url}}"
+                      class="img-responsive attachment-370x370 size-370x370"
+                      alt="img"
+                      width="370"
+                      height="370"
+                    />
+                  </a>
+                </figure>
+                <h3 class="title">
+                  <a href="#" tabindex="-1"> {{category.name}} </a>
+                </h3>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {% endcomment %}
+  <!-- Exclusive---------------------------------------------------------------------------------------------------------------- -->
+  <main class="site-main main-container no-sidebar">
+    <div>
+      <div class="container">
+        <div class="furgan-categories style-01">
+          <div
+            class="categories-list-owl owl-slick equal-container better-height"
+            data-slick='{"arrows":true,"slidesMargin":30,"dots":false,"infinite":false,"speed":300,"slidesToShow":3,"rows":1}'
+            data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":1,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":2,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":3,"slidesMargin":"30"}}]'
+          >
+            {% for category in categories %}
+            <div
+              class="
+                categories-item
+                rows-space-0
+                post-740
+                page
+                type-page
+                status-publish
+                hentry
+              "
+            >
+              <div class="categories-inner">
+                <figure class="categories-thumb">
+                  <a href="/products/{{category.id}}" tabindex="-1">
+                    <img
+                      src="{{category.img.url}}"
+                      class="img-responsive attachment-370x370 size-370x370"
+                      alt="img"
+                      width="370"
+                      height="370"
+                    />
+                  </a>
+                </figure>
+                <h3 class="title">
+                  <a href="#" tabindex="-1"> {{category.name}} </a>
+                </h3>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Exclusive---------------------------------------------------------------------------------------------------------------- -->
+  <div class="section-011">
+    <div class="container">
+      <div class="furgan-heading style-01">
+        <div class="heading-inner">
+          <h3 class="title">Exclusive Designs</h3>
+          <div class="subtitle">
+            Explore many creative design only on TrippleRun
+          </div>
+        </div>
+      </div>
+      <div class="furgan-products style-04">
+        <div
+          class="
+            response-product
+            product-list-owl
+            owl-slick
+            equal-container
+            better-height
+          "
+          data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
+          data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
+        >
+          {% for product in feature_products %}
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-93
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-light
+              product_cat-table
+              product_cat-new-arrivals
+              product_tag-table
+              product_tag-sock
+              first
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb st_designthumb st_df shadow">
+                <a
+                  class="thumb-link"
+                  href="/singal-products/{{product.id}}"
+                  tabindex="0"
+                >
+                  <img
+                    style="width: 100%; object-fit: contain"
+                    class="img-responsive"
+                    src="{{product.image.url}}"
+                    alt="Woody Table"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                {% if product.New %}
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                {% endif %}
+                <div class="group-button">
+                  {% comment %}
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  {% endcomment %} {% comment %}
+                  <form action="{% url 'like_post' product.pk %}" method="POST">
+                    {% csrf_token %}
+                    <div class="yith-wcwl-add-to-wishlist">
+                      <div class="yith-wcwl-add-button show">
+                        <a class="add_to_wishlist">Add To Wishlist</a>
+                      </div>
+                    </div>
+                  </form>
+                  {% endcomment %}
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">{{product.name}}</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol"></span
+                    >{{product.design_code}}</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- {% if request.session.cart.items%} {{request.session.cart.items}}<br />
+  sd{% else%} sdcsaijodcsejivevllj{% endif %} -->
+  <!-- Latest-------------------------------------------------------------------------------------------------------------------- -->
+  <div class="section-011">
+    <div class="container">
+      <div class="furgan-heading style-01">
+        <div class="heading-inner">
+          <h3 class="title">New Arrival</h3>
+          <div class="subtitle">Latest arrivals on TrippleRun</div>
+        </div>
+      </div>
+      <div class="furgan-products style-04">
+        <div
+          class="
+            response-product
+            product-list-owl
+            owl-slick
+            equal-container
+            better-height
+          "
+          data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
+          data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
+        >
+          {% for product in latest_products %}
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-93
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-light
+              product_cat-table
+              product_cat-new-arrivals
+              product_tag-table
+              product_tag-sock
+              first
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb st_designthumb st_df shadow">
+                <a
+                  class="thumb-link"
+                  href="/singal-products/{{product.id}}"
+                  tabindex="0"
+                >
+                  <img
+                    style="width: 100%; object-fit: contain"
+                    class="img-responsive"
+                    src="{{product.image.url}}"
+                    alt="Tripple Run "
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                {% if product.New %}
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                {% endif %}
+                <div class="group-button">
+                  <!-- {% with stop_loop="" %}
+                  {% if request.session.cart.items %}</n>
+                  {% for key,wish in request.session.cart.items %}</n>  
+                  {% if wish.product_id == product.id %}
+                  <div class="yith-wcwl-add-to-wishlist-new">
+                    <div class="yith-wcwl-add-button show">
+                      <a
+                       
+                        class="add_to_wishlist"
+                      ></a>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %} 
+                  
+                  {% else %} -->
+                  <!-- <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a
+                        
+                        class="add_to_wishlist"
+                        >Add To Wishlist</a
+                      >
+                    </div>
+                  </div> -->
+                  <!-- {% endif %}
+                  {% if stop_loop == "true" %} -->
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a class="add_to_wishlist">Add To Wishlist</a>
+                    </div>
+                  </div>
+                  <!-- {% endif %}
+                  {% endwith %} -->
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">{{product.name}}</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol"></span
+                    >{{product.design_code}}</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor%} {% comment %}
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-49
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-light
+              product_cat-bed
+              product_cat-sofas
+              product_tag-furniture
+              product_tag-lamp
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb">
+                <a class="thumb-link" href="#" tabindex="0">
+                  <img
+                    class="img-responsive"
+                    src="assets/images/apro302-270x350.jpg"
+                    alt="Lynn Storage"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                <div class="group-button">
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">Lynn Storage</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol">$</span
+                    >79.00</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-37
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-chair
+              product_cat-bed
+              product_tag-light
+              product_tag-hat
+              product_tag-sock
+              last
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb">
+                <a class="thumb-link" href="#" tabindex="0">
+                  <img
+                    class="img-responsive"
+                    src="assets/images/apro31-1-270x350.jpg"
+                    alt="Knit Lamp"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                <div class="group-button">
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">Knit Lamp</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol">$</span
+                    >120.00</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-35
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-chair
+              product_cat-new-arrivals
+              product_cat-lamp
+              product_tag-light
+              product_tag-hat
+              product_tag-sock
+              first
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb">
+                <a class="thumb-link" href="#" tabindex="0">
+                  <img
+                    class="img-responsive"
+                    src="assets/images/apro41-1-270x350.jpg"
+                    alt="Round Basket"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                <div class="group-button">
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">Round Basket</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol">$</span
+                    >134.00</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-36
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-table
+              product_cat-bed
+              product_tag-light
+              product_tag-table
+              product_tag-sock
+              instock
+              sale
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb">
+                <a class="thumb-link" href="#" tabindex="-1">
+                  <img
+                    class="img-responsive"
+                    src="assets/images/apro51012-1-270x350.jpg"
+                    alt="Long Sofa"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                <div class="flash">
+                  <span class="onsale"><span class="number">-21%</span></span>
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                <div class="group-button">
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="-1">Long Sofa</a>
+                </h3>
+                <span class="price"
+                  ><del
+                    ><span class="furgan-Price-amount amount"
+                      ><span class="furgan-Price-currencySymbol">$</span
+                      >125.00</span
+                    ></del
+                  >
+                  <ins
+                    ><span class="furgan-Price-amount amount"
+                      ><span class="furgan-Price-currencySymbol">$</span
+                      >99.00</span
+                    ></ins
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-34
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-light
+              product_cat-new-arrivals
+              product_tag-light
+              product_tag-hat
+              product_tag-sock
+              last
+              instock
+              sale
+              featured
+              shipping-taxable
+              product-type-grouped
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb">
+                <a class="thumb-link" href="#" tabindex="-1">
+                  <img
+                    class="img-responsive"
+                    src="assets/images/apro61-1-270x350.jpg"
+                    alt="Sweeper Funnel"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                <div class="group-button">
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >View products</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  <div class="yith-wcwl-add-to-wishlist">
+                    <div class="yith-wcwl-add-button show">
+                      <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="-1">Sweeper Funnel</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol">$</span
+                    >79.00</span
+                  >
+                  –
+                  <span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol">$</span
+                    >139.00</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
