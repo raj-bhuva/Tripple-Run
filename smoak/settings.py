@@ -119,7 +119,8 @@ DATABASES = {
         'NAME': config('NAME'),
         'USER': config('USER'),
         'PASSWORD':config('PASSWORD'),
-        'HOST': 'localhost'
+        'HOST': config('HOST'),
+        'PORT': config('PORT')
     }
 }
 import dj_database_url
