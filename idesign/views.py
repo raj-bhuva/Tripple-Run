@@ -230,9 +230,9 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
         try:
-            user = auth.authenticate(username=User.objects.get(email=username), password=password)
-           
-#         except:
+            user = auth.authenticate(username=User.objects.get(email=username), password=password)  
+        except:
+            pass
 #             user = auth.authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
