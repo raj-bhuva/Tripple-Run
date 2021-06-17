@@ -1738,7 +1738,14 @@ textarea {
 }
 select {
   padding: 0 33px 0 15px;
-  background: url(../images/select-arrow.png) center right no-repeat;
+/*   background: url(../images/select-arrow
+	
+	
+	
+	
+	
+	
+	) center right no-repeat; */
 }
 button,
 input[type="submit"],
