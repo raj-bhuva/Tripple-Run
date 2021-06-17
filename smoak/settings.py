@@ -175,7 +175,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+ADMIN_MEDIA_PREFIX = 'https://tripple-run.s3.amazonaws.com/static/admin/'
 
 MEDIA_URL = 'https://tripple-run.s3.amazonaws.com/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
