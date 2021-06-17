@@ -2355,8 +2355,8 @@ td {
   box-shadow: 0 3px 18px 0 rgba(0, 0, 0, 0.05);
   z-index: 999;
 }
-.box-header-nav .main-menu .menu-item .submenu.megamenu-blog {
-  background: url("../images/blog-bg.jpg");
+/* .box-header-nav .main-menu .menu-item .submenu.megamenu-blog {
+  background: url("../images/blog-bg.jpg"); */
 }
 .box-header-nav .main-menu > .menu-item .submenu:not(.megamenu) {
   padding-top: 22px;
