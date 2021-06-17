@@ -231,7 +231,8 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-
+AWS_S3_REGION_NAME = 'us-east-2' #change to your region
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 '''
 <?xml version="1.0" encoding="UTF-8"?>
