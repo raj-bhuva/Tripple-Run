@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # 'cart',
     # django-cleanup
     'django_cleanup.apps.CleanupConfig',
+    'storages',
 ]
 
 
@@ -83,7 +84,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'django.middleware.security.SecurityMiddleware',
-    'storages',
+    
    
 ]
 
