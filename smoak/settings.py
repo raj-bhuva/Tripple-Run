@@ -175,7 +175,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ADMIN_MEDIA_PREFIX = 'https://tripple-run.s3.amazonaws.com/static/admin/'
+
 
 MEDIA_URL = 'https://tripple-run.s3.amazonaws.com/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -233,7 +233,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_S3_REGION_NAME = 'us-east-2' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
-
+AWS_S3_ADDRESSING_STYLE = "virtual"
 '''
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
