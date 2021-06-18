@@ -114,7 +114,7 @@ def singal_product(request, id):
     allfile = list(PostFile.objects.filter(parent_file_id=id))
 
     filename = context["data"].design_code+'.zip'
-    ZipFile = zipfile.ZipFile("./static/"+filename, "w")
+    ZipFile = zipfile.ZipFile("./"+filename, "w")
     for a in allfile:
         ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
                       compress_type=zipfile.ZIP_DEFLATED)
