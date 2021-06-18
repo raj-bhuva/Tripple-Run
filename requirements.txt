@@ -35,5 +35,5 @@ sqlparse==0.3.0
 update-checker==0.18.0
 urllib3==1.26.4
 whitenoise==5.2.0
-django-storages==1.11.1
+-e hg+https://bitbucket.org/david/django-storages@e27c8b61ab57e5afaf21cccfee005c980d89480f#egg=django_storages-dev
 boto3==1.17.96
