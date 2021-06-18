@@ -234,7 +234,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_REGION_NAME = 'us-east-2' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_ADDRESSING_STYLE = "virtual"
-AWS_QUERYSTRING_AUTH = False
+# AWS_QUERYSTRING_AUTH = False
 
 # AWS_QUERYSTRING_AUTH = False
 '''
