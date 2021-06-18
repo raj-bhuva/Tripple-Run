@@ -104,8 +104,7 @@ def home(request):
     data['subcategories'] = get_subcategory(request)
 
     return render(request, 'T-index.html', data)
-import boto3
-s3Resource = boto3.resource('s3')
+
 def path(self, name):
     return name
 def singal_product(request, id):
@@ -118,15 +117,15 @@ def singal_product(request, id):
 
     filename = context["data"].design_code+'.zip'
     ZipFile = zipfile.ZipFile("./"+filename, "w")
-    for a in allfile:
-        ZipFile.write(a.file.path, os.path.relpath(a.file.path, path('./pics/Product_file'),
-                      compress_type=zipfile.ZIP_DEFLATED)
-#       ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
+#     for a in allfile:
+#         ZipFile.write(a.file.path, os.path.relpath(a.file.path, path('./pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
-    # print('zip = ', a.file.path)
+# #       ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
+# #                       compress_type=zipfile.ZIP_DEFLATED)
+#     # print('zip = ', a.file.path)
     ZipFile.close()
-    print(a.file.path)
-    upload_file(filename, 'tripple-run', ExtraArgs=None, Callback=None, Config=None)
+#     print(a.file.path)
+   
 
     # get category tag
     categories = get_category(request)
