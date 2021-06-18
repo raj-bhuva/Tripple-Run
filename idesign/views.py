@@ -115,14 +115,14 @@ def singal_product(request, id):
 
     filename = context["data"].design_code+'.zip'
     ZipFile = zipfile.ZipFile("./"+filename, "w")
-    for a in allfile:
-#         ZipFile.write(a.file.path, os.path.relpath(a.file.path, './static/pics/Product_file'),
-#                       compress_type=zipfile.ZIP_DEFLATED)
-         ZipFile.write(a.file.path, os.path.relpath('./pics/Product_file'),
-                        compress_type=zipfile.ZIP_DEFLATED)
-    # print('zip = ', a.file.path)
-    ZipFile.close()
-    print(a.file.path)
+#     for a in allfile:
+# #         ZipFile.write(a.file.path, os.path.relpath(a.file.path, './static/pics/Product_file'),
+# #                       compress_type=zipfile.ZIP_DEFLATED)
+#          ZipFile.write(a.file.path, os.path.relpath('./pics/Product_file'),
+#                         compress_type=zipfile.ZIP_DEFLATED)
+#     # print('zip = ', a.file.path)
+#     ZipFile.close()
+#     print(a.file.path)
 
 
     # get category tag
