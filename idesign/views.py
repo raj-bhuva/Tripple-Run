@@ -45,7 +45,7 @@ from django.utils import timezone
 # --------------------zipfile---------------
 from shutil import make_archive
 from wsgiref.util import FileWrapper
-
+import io
 
 class EmailThread(threading.Thread):
     def __init__(self, email):
