@@ -124,7 +124,7 @@ def singal_product(request, id):
 #     byte = BytesIO()
     session = boto3.session.Session(aws_access_key_id=settings.AWS_ACCESS_KEY_ID, aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY)
 
-    s3 = session.resource("s3")
+    s3 = boto3.client("s3")
     bucket = s3.Bucket('tripple-run')
 #     obj = bucket.Object('smsspamcollection.zip')
         
