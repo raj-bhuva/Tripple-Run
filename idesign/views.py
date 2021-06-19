@@ -105,8 +105,7 @@ def home(request):
 
     return render(request, 'T-index.html', data)
 
-def path(self, name):
-    return name
+from smoak.settings import MEDIA_URL
 def singal_product(request, id):
     
     newfile = []
@@ -118,8 +117,8 @@ def singal_product(request, id):
     filename = context["data"].design_code+'.zip'
     ZipFile = zipfile.ZipFile("./"+filename, "w")
     for a in allfile:
-        print('zip111111 = ', a.file.name)
-        ZipFile.write("https://tripple-run.s3.us-east-2.amazonaws.com/"+a.file.name, os.path.basename("https://tripple-run.s3.us-east-2.amazonaws.com/"+a.file.name),
+        print('zip111111 = ', MEDIA_URL+a.file.name)
+        ZipFile.write(MEDIA_URL+a.file.name, os.path.basename(MEDIA_URL+a.file.name),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
