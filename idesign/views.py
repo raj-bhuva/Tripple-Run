@@ -118,8 +118,8 @@ def singal_product(request, id):
     filename = context["data"].design_code+'.zip'
     ZipFile = zipfile.ZipFile("./"+filename, "w")
     for a in allfile:
-        print('zip111111 = ', a.file.name)
-        ZipFile.write("./"+a.file.name, os.path.basename("./"+a.file.name),
+        print('zip111111 = ', a.file.path)
+        ZipFile.write(a.file.path, os.path.basename(a.file.path),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
