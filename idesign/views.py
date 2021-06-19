@@ -129,12 +129,12 @@ def singal_product(request, id):
     zip_filename = 'download_files.zip'
     
     for index, fpath in enumerate(allfile):
-        path = fpath.attachment_file.name.split('/')
+        path = fpath.file.name.split('/')
         current_file = path[len(path)-1]
 
         zipped_files.append(current_file)
 
-        key = bucket.lookup(fpath.attachment_file.url.split('.com')[1])
+        key = bucket.lookup(fpath.file.url.split('.com')[1])
         data = key.read()
 
         open(current_file, 'wb').write(data)
