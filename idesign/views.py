@@ -145,9 +145,9 @@ def singal_product(request, id):
 #         os.unlink(current_file)
 #     zf.close()
     
-    for a,fpath in enumerate(allfile):
-        print('zip111111 = ',fpath.file.url)
-        ZipFile.write(fpath.file.url, os.path.relpath(fpath.file.url, './pics/Product_file'),
+    for a,fpaths in enumerate(allfile):
+        print('zip111111 = ',fpaths.file.url)
+        ZipFile.write(fpaths.file.url, os.path.relpath(fpaths.file.url, './pics/Product_file'),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.url, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
