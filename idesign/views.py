@@ -151,8 +151,7 @@ def singal_product(request, id):
 #         path = fpath.file.name.split('/')
 #         current_file = path[len(path)-1]
 #         zipped_files.append(current_file)
-        ZipFile.write(fpath.file.url, os.path.relpath(fpath.file.url, './pics/Product_file'),
-                      compress_type=zipfile.ZIP_DEFLATED)
+        ZipFile.write(fpath.file.url)
 #       ZipFile.write(a.file.url, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
 #     print('zip111111 = ', a.file.name)
