@@ -119,7 +119,7 @@ def singal_product(request, id):
     ZipFile = zipfile.ZipFile("./"+filename, "w")
     for a in allfile:
         print('zip111111 = ', a.file.name)
-        ZipFile.write("./media"+a.file.name, os.path.relpath("./"+a.file.name, './pics/Product_file'),
+        ZipFile.write("./static/"+a.file.name, os.path.relpath("./"+a.file.name, './pics/Product_file'),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.path, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
