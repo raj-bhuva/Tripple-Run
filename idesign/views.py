@@ -124,7 +124,7 @@ def singal_product(request, id):
                          settings.AWS_SECRET_ACCESS_KEY)
   
     bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
-    
+    print('bucket',bucket)
     zf = zipfile.ZipFile(byte, "w")
     zipped_files = []
     zip_filename = 'download_files.zip'
