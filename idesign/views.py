@@ -116,10 +116,11 @@ def singal_product(request, id):
     allimg = PostImage.objects.filter(parent_img_id=id)
     allfile = list(PostFile.objects.filter(parent_file_id=id))
 
-#     byte = BytesIO()
+
    
-# #     filename = context["data"].design_code+'.zip'
-# #     ZipFile = zipfile.ZipFile("./"+filename, "w")
+    filename = context["data"].design_code+'.zip'
+    ZipFile = zipfile.ZipFile("./"+filename, "w")
+#     byte = BytesIO()
 #     s3 = boto3.resource('s3')
 #     for bucket1 in s3.buckets.all():
 #         bucket = print(bucket1.name)
@@ -145,14 +146,18 @@ def singal_product(request, id):
 #         os.unlink(current_file)
 #     zf.close()
     
-    for a,fpaths in enumerate(allfile):
-        print('zip111111 = ',fpaths.file.url)
-        ZipFile.write(fpaths.file.url, os.path.relpath(fpaths.file.url, './pics/Product_file'),
+    for a,fpath in enumerate(allfile):
+        print('zip111111 = ',fpath.file.url)
+#         path = fpath.file.name.split('/')
+#         current_file = path[len(path)-1]
+#         zipped_files.append(current_file)
+        ZipFile.write(fpath.file.url, os.path.relpath(fpath.file.url, './pics/Product_file'),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.url, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
 #     print('zip111111 = ', a.file.name)
     ZipFile.close()
+   
 #     print(a.file.path)
 #     resp = HttpResponse(byte.getvalue(), content_type="application/x-zip-compressed")
 #     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
