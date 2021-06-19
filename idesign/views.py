@@ -140,7 +140,7 @@ def singal_product(request, id):
 
         zipped_files.append(current_file)
         print('dszfafad =',fpath.file.url)
-        key = bucket.put(fpath.file.url.split('.com')[1])
+        key = bucket.put_object(fpath.file.url.split('.com')[1])
         data = key.read()
 
         open(current_file, 'wb').write(data)
