@@ -105,7 +105,7 @@ def home(request):
 
     return render(request, 'T-index.html', data)
 
-
+from smoak import settings
 from io import BytesIO
 import boto
 def singal_product(request, id):
