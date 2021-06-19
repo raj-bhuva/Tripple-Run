@@ -120,10 +120,12 @@ def singal_product(request, id):
    
 #     filename = context["data"].design_code+'.zip'
 #     ZipFile = zipfile.ZipFile("./"+filename, "w")
-    s3 = boto3.connect_s3(settings.AWS_ACCESS_KEY_ID,
-                         settings.AWS_SECRET_ACCESS_KEY)
+    s3 = boto3.resource('s3')
+    for bucket1 in s3.buckets.all():
+        bucket = print(bucket1.name)
+        
   
-    bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
+#     bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
     print('bucket',bucket)
     zf = zipfile.ZipFile(byte, "w")
     zipped_files = []
