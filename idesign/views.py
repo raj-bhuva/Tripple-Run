@@ -147,15 +147,15 @@ def singal_product(request, id):
     
     for a,fpath in enumerate(allfile):
         print('zip111111 = ',fpath.file.url)
-        ZipFile.write(fpath.file.name, os.path.relpath(fpath.file.url, './pics/Product_file'),
+        ZipFile.write(fpath.file.url, os.path.relpath(fpath.file.url, './pics/Product_file'),
                       compress_type=zipfile.ZIP_DEFLATED)
 #       ZipFile.write(a.file.url, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
 #     print('zip111111 = ', a.file.name)
     ZipFile.close()
-    print(a.file.path)
-    resp = HttpResponse(byte.getvalue(), content_type="application/x-zip-compressed")
-    resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+#     print(a.file.path)
+#     resp = HttpResponse(byte.getvalue(), content_type="application/x-zip-compressed")
+#     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
     
 
     # get category tag
