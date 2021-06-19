@@ -118,14 +118,17 @@ def singal_product(request, id):
 
 
    
-#     filename = context["data"].design_code+'.zip'
+    filename = context["data"].design_code+'.zip'
 #     ZipFile = zipfile.ZipFile("./"+filename, "w")
 
 #     byte = BytesIO()
     session = boto3.session.Session(aws_access_key_id=settings.AWS_ACCESS_KEY_ID, aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY)
 
-    s3 = boto3.client("s3")
-    bucket = s3.Bucket('tripple-run')
+    s3 = session.resource("s3")
+    s3 = boto3.client("s3", region_name = "us-east-2")
+    s3 = session.resource("s3")
+    
+#     bucket = s3.Bucket('tripple-run')
 #     obj = bucket.Object('smsspamcollection.zip')
         
   
@@ -174,7 +177,7 @@ def singal_product(request, id):
             infile_content = infile_object['Body'].read()
         zipper.writestr(file_name, infile_content)
 
-    s3.put_object(Bucket=bucket, Key=PREFIX + zip_name, Body=zip_buffer.getvalue())
+    s3.put_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key='./', Body=zip_buffer.getvalue())
     # get category tag
     categories = get_category(request)
     for category in categories:
