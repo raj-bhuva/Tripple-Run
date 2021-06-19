@@ -191,7 +191,7 @@ def singal_product(request, id):
     context['categories'] = get_category(request)
     context['subcategories'] = get_subcategory(request)
     context['allimg'] = allimg
-    context['allfile'] = resp
+#     context['allfile'] = resp
     context['filename'] = zip_filename
 
     return render(request, "T-singal-products.html",  context)
