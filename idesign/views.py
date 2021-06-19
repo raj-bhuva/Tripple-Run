@@ -107,7 +107,7 @@ def home(request):
 
 from smoak import settings
 from io import BytesIO
-import boto
+import boto3
 def singal_product(request, id):
     
     newfile = []
@@ -120,7 +120,7 @@ def singal_product(request, id):
    
 #     filename = context["data"].design_code+'.zip'
 #     ZipFile = zipfile.ZipFile("./"+filename, "w")
-    s3 = boto.connect_s3(settings.AWS_ACCESS_KEY_ID,
+    s3 = boto3.connect_s3(settings.AWS_ACCESS_KEY_ID,
                          settings.AWS_SECRET_ACCESS_KEY)
   
     bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
