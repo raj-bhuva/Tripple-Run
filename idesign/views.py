@@ -155,6 +155,7 @@ def singal_product(request, id):
 #       ZipFile.write(a.file.url, os.path.relpath(a.file.path, './media/pics/Product_file'),
 #                       compress_type=zipfile.ZIP_DEFLATED)
 #     print('zip111111 = ', a.file.name)
+        os.unlink(current_file)
     ZipFile.close()
    
 #     print(a.file.path)
