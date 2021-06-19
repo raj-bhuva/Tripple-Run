@@ -122,6 +122,7 @@ def singal_product(request, id):
 #     ZipFile = zipfile.ZipFile("./"+filename, "w")
     s3 = boto.connect_s3(settings.AWS_ACCESS_KEY_ID,
                          settings.AWS_SECRET_ACCESS_KEY)
+  
     bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
     
     zf = zipfile.ZipFile(byte, "w")
@@ -133,7 +134,7 @@ def singal_product(request, id):
         current_file = path[len(path)-1]
 
         zipped_files.append(current_file)
-
+        print('dszfafad =',fpath.file.url)
         key = bucket.lookup(fpath.file.url.split('.com')[1])
         data = key.read()
 
