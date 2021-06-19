@@ -173,7 +173,7 @@ def singal_product(request, id):
     zip_buffer = io.BytesIO()
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
         for a in allfile:
-            infile_object = s3.get_object(Bucket=bucket, Key = a.file.name) 
+            infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = a.file.name) 
             infile_content = infile_object['Body'].read()
         zipper.writestr(file_name, infile_content)
 
