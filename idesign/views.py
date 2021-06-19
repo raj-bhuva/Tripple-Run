@@ -120,7 +120,8 @@ def singal_product(request, id):
    
 #     filename = context["data"].design_code+'.zip'
 #     ZipFile = zipfile.ZipFile("./"+filename, "w")
-    byte = BytesIO()
+
+#     byte = BytesIO()
     session = boto3.session.Session(aws_access_key_id=settings.AWS_ACCESS_KEY_ID, aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY)
 
     s3 = session.resource("s3")
@@ -129,24 +130,24 @@ def singal_product(request, id):
         
   
 #     bucket = s3.lookup(settings.AWS_STORAGE_BUCKET_NAME)
-    print('bucket==',bucket)
-    zf = zipfile.ZipFile(byte, "w")
-    zipped_files = []
-    zip_filename = 'download_files.zip'
+#     print('bucket==',bucket)
+#     zf = zipfile.ZipFile(byte, "w")
+#     zipped_files = []
+#     zip_filename = 'download_files.zip'
     
-    for index, fpath in enumerate(allfile):
-        path = fpath.file.name.split('/')
-        current_file = path[len(path)-1]
+#     for index, fpath in enumerate(allfile):
+#         path = fpath.file.name.split('/')
+#         current_file = path[len(path)-1]
 
-        zipped_files.append(current_file)
-        print('dszfafad =',fpath.file.url)
-        key = bucket.put_object(fpath.file.url.split('.com')[1])
-        data = key.read()
+#         zipped_files.append(current_file)
+#         print('dszfafad =',fpath.file.url)
+#         key = bucket.put_object(fpath.file.url.split('.com')[1])
+#         data = key.read()
 
-        open(current_file, 'wb').write(data)
-        zf.write(current_file)
-        os.unlink(current_file)
-    zf.close()
+#         open(current_file, 'wb').write(data)
+#         zf.write(current_file)
+#         os.unlink(current_file)
+#     zf.close()
     
 #     for a,fpath in enumerate(allfile):
 #         print('zip111111 = ',fpath.file.url)
@@ -165,7 +166,15 @@ def singal_product(request, id):
 #     resp = HttpResponse(byte.getvalue(), content_type="application/x-zip-compressed")
 #     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
     
+        
+    zip_buffer = io.BytesIO()
+    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
+        for a in allfile:
+            infile_object = s3.get_object(Bucket=bucket, Key = a.file.name) 
+            infile_content = infile_object['Body'].read()
+        zipper.writestr(file_name, infile_content)
 
+    s3.put_object(Bucket=bucket, Key=PREFIX + zip_name, Body=zip_buffer.getvalue())
     # get category tag
     categories = get_category(request)
     for category in categories:
