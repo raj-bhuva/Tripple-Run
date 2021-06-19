@@ -126,7 +126,7 @@ def singal_product(request, id):
 
     s3 = session.resource("s3")
     s3 = boto3.client("s3", region_name = "us-east-2")
-    s3 = session.resource("s3")
+    s3_resource = session.resource("s3")
     
 #     bucket = s3.Bucket('tripple-run')
 #     obj = bucket.Object('smsspamcollection.zip')
