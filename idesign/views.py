@@ -174,9 +174,9 @@ def singal_product(request, id):
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
         for a in allfile:
             
-            print('a.file.name = = ', a.file.name)
+            print('a.file = = ', a.file)
             print('a.file.url = = ', a.file.url)
-            infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = (a.file.name).get('Key'))
+            infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = a.file)
             print('aaaaaaaaaaooo=',infile_object)
             
             infile_content = infile_object['Body'].read()
