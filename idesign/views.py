@@ -169,19 +169,19 @@ def singal_product(request, id):
 #     resp = HttpResponse(byte.getvalue(), content_type="application/x-zip-compressed")
 #     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
     
-    infile_content =[]
+
     zip_buffer = io.BytesIO()
-    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
-        for a in allfile:
-            
+    for a in allfile:
+        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
+
             print('a.file = = ', a.file.name)
             print('a.file.url = = ', a.file.url)
             infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = a.file.name)
             print('aaaaaaaaaaooo=',infile_object)
-            
-            infile_content.append(infile_object['Body'].read())
-#             print('aaaaaaaaaafff=',infile_content)
-        zipper.writestr(filename, infile_content)
+
+            infile_content = infile_object['Body'].read()
+    #             print('aaaaaaaaaafff=',infile_content)
+            zipper.writestr(filename, infile_content)
 
     s3.put_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key='zipfiles/'+filename, Body=zip_buffer.getvalue())
     # get category tag
