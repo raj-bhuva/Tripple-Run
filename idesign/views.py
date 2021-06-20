@@ -171,10 +171,10 @@ def singal_product(request, id):
     
 
     zip_buffer = io.BytesIO()
-    for a in allfile:
-        with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
-
-            print('a.file = = ', a.file.name)
+    
+    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zipper:
+        for a in allfile:
+            print('a.file = = ', allfile.name)
             print('a.file.url = = ', a.file.url)
             infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = a.file.name)
             print('aaaaaaaaaaooo=',infile_object)
