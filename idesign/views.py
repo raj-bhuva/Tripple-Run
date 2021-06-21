@@ -178,7 +178,7 @@ def singal_product(request, id):
 #             print('adadvad',a)
             infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = a.file.name)
             infile_content = infile_object['Body'].read()
-            zipper.writestr('files', infile_content)
+            zipper.writestr(a.file.name, infile_content)
 
     s3.put_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key='zipfiles/'+filename, Body=zip_buffer.getvalue())
     # get category tag
