@@ -181,6 +181,14 @@ def singal_product(request, id):
             zipper.writestr(a.file.name, infile_content)
 
     s3.put_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=filename, Body=zip_buffer.getvalue())
+    
+    
+    url = s3.generate_presigned_url(
+    ClientMethod='get_object',
+    Params={
+        'Bucket': settings.AWS_STORAGE_BUCKET_NAME,
+        'Key': filename
+    })
     # get category tag
     categories = get_category(request)
     for category in categories:
@@ -194,7 +202,7 @@ def singal_product(request, id):
     context['categories'] = get_category(request)
     context['subcategories'] = get_subcategory(request)
     context['allimg'] = allimg
-#     context['allfile'] = resp
+    context['allfile'] = url
     context['filename'] = filename
 
     return render(request, "T-singal-products.html",  context)
