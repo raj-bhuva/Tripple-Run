@@ -186,7 +186,7 @@ def singal_product(request, id):
         
 
 #             print('aaaaaaaaaafff=',infile_content)
-        zipper.writestr(filename, infile_content)
+        zipper.writestr(abc[0], infile_content)
 
     s3.put_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key='zipfiles/'+filename, Body=zip_buffer.getvalue())
     # get category tag
