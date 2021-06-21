@@ -156,7 +156,7 @@
                     </div>
                     {% if user.is_authenticated %}
                     {% comment %} {% for i in allfile%} {% endcomment %}
-                    <a href="{{STATIC_URL}}{{ filename }}" download>
+                    <a href="https://s3.amazonaws.com/tripple-run/{{ filename }}" download>
                       <button 
                         type="submit"
                         class="add_to_cart_button button alt"
