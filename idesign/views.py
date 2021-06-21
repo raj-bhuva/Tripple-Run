@@ -179,7 +179,7 @@ def singal_product(request, id):
         print('a.file.url = = ', a.file.url)
        
 
-        infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = abc)
+        infile_object = s3.get_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key = abc[0])
 #             print('aaaaaaaaaaooo=',infile_object)
 
         infile_content = infile_object['Body'].read()
