@@ -30,64 +30,7 @@
         <div
           class="main-content col-xl-9 col-lg-8 col-md-8 col-sm-12 has-sidebar"
         >
-          <!-- <div class="shop-control shop-before-control">
-                <div class="grid-view-mode">
-                  <form>
-                    <a
-                      href="shop.html"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      class="modes-mode mode-grid display-mode active"
-                      value="grid"
-                    >
-                      <span class="button-inner">
-                        Shop Grid
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </span>
-                    </a>
-                    <a
-                      href="shop-list.html"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      class="modes-mode mode-list display-mode"
-                      value="list"
-                    >
-                      <span class="button-inner">
-                        Shop List
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </span>
-                    </a>
-                  </form>
-                </div>
-                <form class="furgan-ordering" method="get">
-                  <select title="product_cat" name="orderby" class="orderby">
-                    <option value="menu_order" selected="selected">
-                      Default sorting
-                    </option>
-                    <option value="popularity">Sort by popularity</option>
-                    <option value="rating">Sort by average rating</option>
-                    <option value="date">Sort by latest</option>
-                    <option value="price">Sort by price: low to high</option>
-                    <option value="price-desc">Sort by price: high to low</option>
-                  </select>
-                </form>
-                <form class="per-page-form">
-                  <label>
-                    <select class="option-perpage">
-                      <option value="12" selected="">Show 12</option>
-                      <option value="5">Show 05</option>
-                      <option value="10">Show 10</option>
-                      <option value="12">Show 12</option>
-                      <option value="15">Show 15</option>
-                      <option value="20">Show All</option>
-                    </select>
-                  </label>
-                </form>
-              </div> -->
+         
           {% if  filter|length < 1 %}
         
         <p> <b>No search results</b> </p>
@@ -149,16 +92,16 @@
                           <a href="#" class="compare button">Compare</a>
                         </div>
                         {% endcomment %}
-                        <div class="yith-wcwl-add-to-wishlist">
+                        {% comment %} <div class="yith-wcwl-add-to-wishlist">
                           <div class="yith-wcwl-add-button show">
                             <a href="#" class="add_to_wishlist">Add to Wishlist</a>
                           </div>
-                        </div>
+                        </div> {% endcomment %}
                       </div>
                     </div>
                     <div class="product-info">
                       <h3 class="product-name product_title">
-                        <a href="#" tabindex="0">{{product.name}}</a>
+                        <a href="/singal-products/{{product.id}}" tabindex="0">{{product.name}}</a>
                       </h3>
                       <span class="price"
                         ><span class="furgan-Price-amount amount"
@@ -166,14 +109,14 @@
                           >{{product.design_code}}</span
                         ></span
                       >
-                      <div class="rating-wapper nostar">
+                      {% comment %} <div class="rating-wapper nostar">
                         <div class="star-rating">
                           <span style="width: 0%"
                             >Rated <strong class="rating">0</strong> out of 5</span
                           >
                         </div>
                         <span class="review">(0)</span>
-                      </div>
+                      </div> {% endcomment %}
                     </div>
                   </div>
                 </div>
@@ -224,20 +167,20 @@
                         <a href="#" class="compare button">Compare</a>
                       </div>
                       {% endcomment %}
-                      <div class="yith-wcwl-add-to-wishlist">
+                      {% comment %} <div class="yith-wcwl-add-to-wishlist">
                         <div class="yith-wcwl-add-button show">
                           <a href="#" class="add_to_wishlist"
                             >Add to Wishlist</a
                           >
                         </div>
-                      </div>
+                      </div> {% endcomment %}
                     </div>
                   </div>
                   <div class="product-info equal-elem">
                     <h3 class="product-name product_title">
-                      <a href="#">{{product.name}}</a>
+                      <a href="/singal-products/{{product.id}}">{{product.name}}</a>
                     </h3>
-                    <div class="rating-wapper nostar">
+                    {% comment %} <div class="rating-wapper nostar">
                       <div class="star-rating">
                         <span style="width: 0%"
                           >Rated <strong class="rating">0</strong> out of
@@ -245,7 +188,7 @@
                         >
                       </div>
                       <span class="review">(0)</span>
-                    </div>
+                    </div> {% endcomment %}
                     <span class="price">{{product.design_code}}</span>
                   </div>
                 </div>
@@ -388,98 +331,7 @@
                 
               </ul>
             </div>
-            {% comment %} <div
-              id="furgan_layered_nav-6"
-              class="widget furgan widget_layered_nav furgan-widget-layered-nav"
-            >
-              <h2 class="widgettitle">
-                Filter By Size<span class="arrow"></span>
-              </h2>
-              <ul class="furgan-widget-layered-nav-list">
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">XS</a>
-                  <span class="count">(1)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">S</a>
-                  <span class="count">(4)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">M</a>
-                  <span class="count">(2)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">L</a>
-                  <span class="count">(3)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">XL</a>
-                  <span class="count">(1)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">XXL</a>
-                  <span class="count">(4)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">3XL</a>
-                  <span class="count">(4)</span>
-                </li>
-                <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
-                >
-                  <a rel="nofollow" href="#">4XL</a>
-                  <span class="count">(3)</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              id="furgan_product_categories-3"
-              class="widget furgan widget_product_categories"
-            >
-              <h2 class="widgettitle">
-                Product categories<span class="arrow"></span>
-              </h2>
-              <ul class="product-categories">
-                <li class="cat-item cat-item-22">
-                  <a href="#">Light</a> <span class="count">(11)</span>
-                </li>
-                <li class="cat-item cat-item-16">
-                  <a href="#">Chair</a> <span class="count">(9)</span>
-                </li>
-                <li class="cat-item cat-item-24">
-                  <a href="#">Table</a> <span class="count">(6)</span>
-                </li>
-                <li class="cat-item cat-item-27">
-                  <a href="#">Bed</a> <span class="count">(6)</span>
-                </li>
-                <li class="cat-item cat-item-19">
-                  <a href="#">New arrivals</a> <span class="count">(7)</span>
-                </li>
-                <li class="cat-item cat-item-17">
-                  <a href="#">Lamp</a> <span class="count">(6)</span>
-                </li>
-                <li class="cat-item cat-item-26">
-                  <a href="#">Specials</a> <span class="count">(4)</span>
-                </li>
-                <li class="cat-item cat-item-18">
-                  <a href="#">Sofas</a> <span class="count">(6)</span>
-                </li>
-              </ul>
-            </div> {% endcomment %}
+            
             <div id="media_image-2" class="widget widget_media_image">
               <a href="#"
                 ><img

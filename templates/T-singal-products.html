@@ -131,27 +131,22 @@
                       <span class="sku_wrapper"
                         >Design Format:   <span class="sku">{{data.design_type}}</span></span
                       >
-                      {% comment %} <span class="posted_in"
-                        >Categories: <a href="#" rel="tag">Table</a>,
-                        <a href="#" rel="tag">New arrivals</a>,
-                        <a href="#" rel="tag">Lamp</a></span
-                      > {% endcomment %}
+                      
                       <span class="posted_in"
                         >Categories: <a href="#" rel="tag">{{data.category}}</a>,
                         </span
                       >
-                      <span class="tagged_as"
+                      {% comment %} <span class="tagged_as"
                         >Tags: <a href="#" rel="tag">Table</a>,
                         <a href="#" rel="tag">Sock</a></span
-                      >
+                      > {% endcomment %}
                     </div>
                     <div class="furgan-product-details__short-description">
                       <ul>
                         <li>
                           {{data.description}}
                         </li>
-                        {% comment %} <li>CLean zip-front, and three piece hood</li>
-                        <li>Subtle branding and diagonal panel detail</li> {% endcomment %}
+                        
                       </ul>
                     </div>
                     {% if user.is_authenticated %}
@@ -185,20 +180,8 @@
                       {% post_to_facebook object_or_url%}
                       {% post_to_telegram "TrippleRun: {{object.title}}" object_or_url %}
                       {% save_to_pinterest object_or_url %}
-                      {% comment %} {% add_pinterest_script %} {% endcomment %}
                       {% post_to_whatsapp object_or_url%}
-                      {% comment %} <a target="_blank" class="facebook" href="#">
-                        <i class="fa fa-facebook-f"></i>
-                      </a>
-                      <a target="_blank" class="twitter" href="#"
-                        ><i class="fa fa-twitter"></i>
-                      </a>
-                      <a target="_blank" class="pinterest" href="#">
-                        <i class="fa fa-pinterest"></i>
-                      </a>
-                      <a target="_blank" class="googleplus" href="#"
-                        ><i class="fa fa-google-plus"></i>
-                      </a> {% endcomment %}
+                      
                     </div>
                   </div>
                 </div>
@@ -294,30 +277,18 @@
                     <div class="flash">
                       <span class="onnew"><span class="text">New</span></span>
                     </div>
-                    <div class="group-button">
-                      {% comment %}
-                      <div class="add-to-cart">
-                        <a
-                          href="#"
-                          class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                          >Add to cart</a
-                        >
-                      </div>
-                      <a href="#" class="button yith-wcqv-button">Quick View</a>
-                      <div class="furgan product compare-button">
-                        <a href="#" class="compare button">Compare</a>
-                      </div>
-                      {% endcomment %}
+                    {% comment %} <div class="group-button">
+                      
                       <div class="yith-wcwl-add-to-wishlist">
                         <div class="yith-wcwl-add-button show">
                           <a href="#" class="add_to_wishlist">Add to Wishlist</a>
                         </div>
                       </div>
-                    </div>
+                    </div> {% endcomment %}
                   </div>
                   <div class="product-info">
                     <h3 class="product-name product_title">
-                      <a href="#" tabindex="0">Name : {{product.name}}</a>
+                      <a href="/singal-products/{{product.id}}" tabindex="0">Name : {{product.name}}</a>
                     </h3>
                     <span class="price"
                       ><span class="furgan-Price-amount amount"
@@ -325,14 +296,14 @@
                         >SKU : {{product.design_code}}</span
                       ></span
                     >
-                    <div class="rating-wapper nostar">
+                    {% comment %} <div class="rating-wapper nostar">
                       <div class="star-rating">
                         <span style="width: 0%"
                           >Rated <strong class="rating">0</strong> out of 5</span
                         >
                       </div>
                       <span class="review">(0)</span>
-                    </div>
+                    </div> {% endcomment %}
                   </div>
                 </div>
               </div>
