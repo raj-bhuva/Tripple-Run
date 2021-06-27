@@ -43,13 +43,13 @@
         </br> {% endcomment %}
         <div class="section-011">
           <div class="container">
-            <div class="furgan-heading style-01">
+            <div class="smoak-heading style-01">
               <div class="heading-inner">
                 <h3 class="title">New Arrival</h3>
                 <div class="subtitle">Latest arrivals on TrippleRun</div>
               </div>
             </div>
-            <div class="furgan-products style-04">
+            <div class="smoak-products style-04">
               <div
                 class="response-product product-list-owl owl-slick equal-container better-height"
                 data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
@@ -88,7 +88,7 @@
                           >
                         </div>
                         <a href="#" class="button yith-wcqv-button">Quick View</a>
-                        <div class="furgan product compare-button">
+                        <div class="smoak product compare-button">
                           <a href="#" class="compare button">Compare</a>
                         </div>
                         {% endcomment %}
@@ -104,8 +104,8 @@
                         <a href="/singal-products/{{product.id}}" tabindex="0">{{product.name}}</a>
                       </h3>
                       <span class="price"
-                        ><span class="furgan-Price-amount amount"
-                          ><span class="furgan-Price-currencySymbol"></span
+                        ><span class="smoak-Price-amount amount"
+                          ><span class="smoak-Price-currencySymbol"></span
                           >{{product.design_code}}</span
                         ></span
                       >
@@ -126,7 +126,7 @@
           </div>
         </div>
         {% endif %}
-          <div class="auto-clear equal-container better-height furgan-products">
+          <div class="auto-clear equal-container better-height smoak-products">
             <ul class="row products columns-3">
               {% for product in filter %}
               <li
@@ -163,7 +163,7 @@
                         >
                       </div>
                       <a href="#" class="button yith-wcqv-button">Quick View</a>
-                      <div class="furgan product compare-button">
+                      <div class="smoak product compare-button">
                         <a href="#" class="compare button">Compare</a>
                       </div>
                       {% endcomment %}
@@ -206,7 +206,7 @@
           </div>
           {% comment %} --------------------------------------- pagnation --------------------------------------------- {% endcomment %}
           {% comment %} <div class="shop-control shop-after-control">
-            <nav class="furgan-pagination">
+            <nav class="smoak-pagination">
               {% if products.has_previous %}
               <a
                 class=" page-number"
@@ -252,12 +252,12 @@
         <div class="sidebar col-xl-3 col-lg-4 col-md-4 col-sm-12">
           <div id="widget-area" class="widget-area shop-sidebar">
             {% comment %} <div
-              id="furgan_product_search-2"
-              class="widget furgan widget_product_search"
+              id="smoak_product_search-2"
+              class="widget smoak widget_product_search"
             >
-              <form class="furgan-product-search">
+              <form class="smoak-product-search">
                 <input
-                  id="furgan-product-search-field-0"
+                  id="smoak-product-search-field-0"
                   class="search-field"
                   placeholder="Search products…"
                   value=""
@@ -268,8 +268,8 @@
               </form>
             </div> {% endcomment %}
             {% comment %} <div
-              id="furgan_price_filter-2"
-              class="widget furgan widget_price_filter"
+              id="smoak_price_filter-2"
+              class="widget smoak widget_price_filter"
             >
               <h2 class="widgettitle">
                 Filter By Price<span class="arrow"></span>
@@ -302,15 +302,15 @@
             
               
             <div
-              id="furgan_layered_nav-6"
-              class="widget furgan widget_layered_nav furgan-widget-layered-nav"
+              id="smoak_layered_nav-6"
+              class="widget smoak widget_layered_nav smoak-widget-layered-nav"
             >
               <h2 class="widgettitle">
                 Filter By : <span class="arrow"></span>
               </h2>
-              <ul class="furgan-widget-layered-nav-list">
+              <ul class="smoak-widget-layered-nav-list">
                 <li
-                  class="furgan-widget-layered-nav-list__item furgan-layered-nav-term"
+                  class="smoak-widget-layered-nav-list__item smoak-layered-nav-term"
                 >
                 <form method="get" action="/search/{{query}}/">
                   {{ filtered_qs_form.as_p }}
