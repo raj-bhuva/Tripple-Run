@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     # rest frame work
     'rest_framework',
     # for social share link
-    # 'django_social_share', #forked own library
+    'django_social_share', #forked own library
     # cart
     # 'cart',
     # django-cleanup
