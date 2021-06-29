@@ -662,9 +662,10 @@
     <script src="{%static 'assets/js/jquery-1.12.4.min.js' %}"></script>
     {% endcomment %}
     <script
-      src="https://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     {% comment %}
     <script src="{%static 'assets/js/bootstrap.min.js' %}"></script>
@@ -695,7 +696,12 @@
     {% comment %}
     <script src="{%static 'assets/js/jquery.scrollbar.min.js' %}"></script>
     {% endcomment %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.10/jquery.scrollbar.min.js" integrity="sha512-5CleaK2Hl4bA22D0RR8RGxvxyfIJ44ABSzGRmwH/p0MvAZHbhOQoTO6Elnde9W8o37WOdJGI0Tl5p43q46gX/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.10/jquery.scrollbar.min.js"
+      integrity="sha512-5CleaK2Hl4bA22D0RR8RGxvxyfIJ44ABSzGRmwH/p0MvAZHbhOQoTO6Elnde9W8o37WOdJGI0Tl5p43q46gX/w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     {% comment %}
     <script src="{%static 'assets/js/lightbox.min.js' %}"></script>
     {% endcomment %} {% comment %}
@@ -752,12 +758,13 @@
       });
     </script>
   </body>
-  {% comment %} scroll {% endcomment %}
+  {% comment %} scroll {% endcomment %} {% comment %}
   <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
     crossorigin="anonymous"
   ></script>
+  {% endcomment %}
   <script src="{%static 'js/waypoint/lib/jquery.waypoints.min.js' %}"></script>
   <script src="{%static 'js/waypoint/lib/shortcuts/infinite.min.js' %}"></script>
   <script>
