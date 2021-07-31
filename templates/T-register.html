@@ -56,7 +56,7 @@
         class="login100-form validate-form"
       >
         {% csrf_token %}
-        <span class="login100-form-title"> Register </span>
+        <span class="login100-form-title"> <b>Register</b> </span>
 
         <div class="wrap-input100 validate-input">
           <input
@@ -145,6 +145,11 @@
           <div class="content-socials">
             <ul class="socials-list">
               <li>
+                <a href="{% provider_login_url "google" %}" target="_blank">
+                  <i class="fa fa-google"></i>
+                </a>
+              </li>
+              {% comment %} <li>
                 <a href="https://facebook.com/" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
@@ -163,7 +168,7 @@
                 <a href="https://www.pinterest.com/" target="_blank">
                   <i class="fa fa-pinterest-p"></i>
                 </a>
-              </li>
+              </li> {% endcomment %}
             </ul>
           </div>
         </div>
