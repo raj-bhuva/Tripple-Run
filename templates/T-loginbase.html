@@ -178,7 +178,6 @@
                         menu-item-object-megamenu menu-item-230
                         parent parent-megamenu
                         item-megamenu
-                        menu-item-has-children
                       "
                     >
                       <a class="smoak-menu-item-title" title="Home" href="/"
@@ -305,6 +304,7 @@
                         >
                           <a href="#">Account details</a>
                         </li>
+                        {% endcomment %} {% comment %}
                         <li
                           class="
                             menu-item
@@ -364,43 +364,25 @@
             <div class="block-search">
               <form
                 role="search"
+                action="/search"
+                name="myform"
                 method="get"
                 class="form-search block-search-form smoak-live-search-form"
               >
                 <div class="form-content search-box results-search">
                   <div class="inner">
                     <input
-                      autocomplete="on"
+                      required
+                      autocomplete="off"
                       class="searchfield txt-livesearch input"
-                      name="s"
-                      value=""
                       placeholder="Search here..."
                       type="text"
+                      id="autocomplete"
+                      name="q"
                     />
                   </div>
                 </div>
-                <input name="post_type" value="product" type="hidden" />
-                <input name="taxonomy" value="product_cat" type="hidden" />
-                <div class="category">
-                  <select
-                    title="product_cat"
-                    name="product_cat"
-                    class="category-search-option"
-                    tabindex="-1"
-                  >
-                    <option value="0">All Categories</option>
-                    <option class="level-0" value="light">Light</option>
-                    <option class="level-0" value="chair">Chair</option>
-                    <option class="level-0" value="table">Table</option>
-                    <option class="level-0" value="bed">Bed</option>
-                    <option class="level-0" value="new-arrivals">
-                      New arrivals
-                    </option>
-                    <option class="level-0" value="lamp">Lamp</option>
-                    <option class="level-0" value="specials">Specials</option>
-                    <option class="level-0" value="sofas">Sofas</option>
-                  </select>
-                </div>
+
                 <button type="submit" class="btn-submit">
                   <span class="fa fa-search" aria-hidden="true"></span>
                 </button>
@@ -428,6 +410,7 @@
                   <span class="fa fa-user" aria-hidden="true"></span>
                 </a>
                 <ul class="sub-menu">
+                  {% comment %}
                   <li
                     class="
                       menu-item
@@ -437,7 +420,7 @@
                   >
                     <a href="#">Account details</a>
                   </li>
-                  {% if user.is_authenticated %}
+                  {% endcomment %} {% if user.is_authenticated %}
                   <li>Hello, {{user.first_name}}</li>
                   <li
                     class="
@@ -451,6 +434,9 @@
                   {% else %}
                   <li>
                     <a href="/login">Login</a>
+                  </li>
+                  <li>
+                    <a href="/register">Register</a>
                   </li>
                   {% endif %}
                 </ul>
@@ -610,30 +596,40 @@
           </a>
         </div>
         <div class="footer-device-mobile-item device-home device-wishlist">
-          <a href="wishlist.html">
+          <a href="/products">
             <span class="icon">
-              <i class="fa fa-heart" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </span>
-            Wishlist
+            Explore
           </a>
         </div>
         <div class="footer-device-mobile-item device-home device-cart">
-          <a href="cart.html">
+          <a href="/products">
             <span class="icon">
-              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-              <span class="count-icon"> 0 </span>
+              <i class="fa fa-desktop" aria-hidden="true"></i>
             </span>
-            <span class="text">Cart</span>
+            <span class="text">New</span>
           </a>
         </div>
+        {% if user.is_authenticated %}
+        <div class="footer-device-mobile-item device-home device-user">
+          <a href="#">
+            <span class="icon">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </span>
+            {{user.username}}
+          </a>
+        </div>
+        {% else %}
         <div class="footer-device-mobile-item device-home device-user">
           <a href="/login">
             <span class="icon">
               <i class="fa fa-user" aria-hidden="true"></i>
             </span>
-            Account
+            Login?
           </a>
         </div>
+        {% endif %}
       </div>
     </div>
     <a href="#" class="backtotop active">
