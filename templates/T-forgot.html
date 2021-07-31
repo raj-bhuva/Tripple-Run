@@ -1,4 +1,5 @@
 {% extends 'T-loginbase.html' %} {% block content %} {% load static%}
+{% load socialaccount %}
 <!--===============================================================================================-->
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
@@ -87,6 +88,11 @@
           <div class="content-socials">
             <ul class="socials-list">
               <li>
+                <a href="{% provider_login_url "google" %}" target="_blank">
+                  <i class="fa fa-google"></i>
+                </a>
+              </li>
+              {% comment %} <li>
                 <a href="https://facebook.com/" target="_blank">
                   <i class="fa fa-facebook"></i>
                 </a>
@@ -105,7 +111,7 @@
                 <a href="https://www.pinterest.com/" target="_blank">
                   <i class="fa fa-pinterest-p"></i>
                 </a>
-              </li>
+              </li> {% endcomment %}
             </ul>
           </div>
         </div>

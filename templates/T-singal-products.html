@@ -28,13 +28,13 @@
                     <div
                       class="smoak-product-gallery smoak-product-gallery--with-images smoak-product-gallery--columns-4 images"
                     >
-                      <a href="#" class="smoak-product-gallery__trigger">
+                      {% comment %} <a href="#" class="smoak-product-gallery__trigger">
                         <img
                           draggable="false"
                           class="emoji"
                           alt="🔍"
                           src="https://s.w.org/images/core/emoji/11/svg/1f50d.svg"
-                      /></a>
+                      /></a> {% endcomment %}
                        <div class="flex-viewport ">
                         <figure class="smoak-product-gallery__wrapper "> 
                           <div class="smoak-product-gallery__image ">
@@ -133,7 +133,7 @@
                       >
                       
                       <span class="posted_in"
-                        >Categories: <a href="#" rel="tag">{{data.category}}</a>,
+                        >Categories: <a href="#" rel="tag">{{data.category}}</a>
                         </span
                       >
                       {% comment %} <span class="tagged_as"
