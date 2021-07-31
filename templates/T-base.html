@@ -280,7 +280,7 @@
                         data-smoak="smoak-dropdown"
                       >
                         <a href="#" class="link-dropdown block-link">
-                          <span class="flaticon-magnifying-glass-1"></span>
+                          <span class="fa fa-search" aria-hidden="true"></span>
                         </a>
                       </div>
                       <div class="block-search">
@@ -310,7 +310,10 @@
                           </div>
 
                           <button type="submit" class="btn-submit">
-                            <span class="flaticon-magnifying-glass-1"></span>
+                            <span
+                              class="fa fa-search"
+                              aria-hidden="true"
+                            ></span>
                           </button>
                         </form>
                         <!-- block search -->
@@ -321,7 +324,7 @@
                       class="menu-item block-user block-dreaming smoak-dropdown"
                     >
                       <a class="block-link">
-                        <span class="flaticon-profile"></span>
+                        <span class="fa fa-user" aria-hidden="true"></span>
                       </a>
                       <ul class="sub-menu">
                         {% comment %}
@@ -388,7 +391,7 @@
           <div class="header-search smoak-dropdown">
             <div class="header-search-inner" data-smoak="smoak-dropdown">
               <a href="#" class="link-dropdown block-link">
-                <span class="flaticon-magnifying-glass-1"></span>
+                <span class="fa fa-search" aria-hidden="true"></span>
               </a>
             </div>
             <div class="block-search">
@@ -414,7 +417,7 @@
                 </div>
 
                 <button type="submit" class="btn-submit">
-                  <span class="flaticon-magnifying-glass-1"></span>
+                  <span class="fa fa-search" aria-hidden="true"></span>
                 </button>
               </form>
               <!-- block search -->
@@ -437,7 +440,7 @@
             <div class="meta-dreaming">
               <div class="menu-item block-user block-dreaming smoak-dropdown">
                 <a class="block-link">
-                  <span class="flaticon-profile"></span>
+                  <span class="fa fa-user" aria-hidden="true"></span>
                 </a>
                 <ul class="sub-menu">
                   {% comment %}
@@ -624,30 +627,40 @@
           </a>
         </div>
         <div class="footer-device-mobile-item device-home device-wishlist">
-          <a href="wishlist.html">
+          <a href="/products">
             <span class="icon">
-              <i class="fa fa-heart" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </span>
-            Wishlist
+            Explore
           </a>
         </div>
         <div class="footer-device-mobile-item device-home device-cart">
-          <a href="cart.html">
+          <a href="/products">
             <span class="icon">
-              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-              <span class="count-icon"> 0 </span>
+              <i class="fa fa-desktop" aria-hidden="true"></i>
             </span>
-            <span class="text">Cart</span>
+            <span class="text">New</span>
           </a>
         </div>
+        {% if user.is_authenticated %}
+        <div class="footer-device-mobile-item device-home device-user">
+          <a href="#">
+            <span class="icon">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </span>
+            {{user.username}}
+          </a>
+        </div>
+        {% else %}
         <div class="footer-device-mobile-item device-home device-user">
           <a href="/login">
             <span class="icon">
               <i class="fa fa-user" aria-hidden="true"></i>
             </span>
-            Account
+            Login?
           </a>
         </div>
+        {% endif %}
       </div>
     </div>
     <a href="#" class="backtotop active">
