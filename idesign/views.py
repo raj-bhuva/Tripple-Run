@@ -298,8 +298,8 @@ def login(request):
         try:
             user = auth.authenticate(username=User.objects.get(email=username), password=password)  
         except:
-            pass
-#             user = auth.authenticate(username=username, password=password)
+            # pass
+            user = auth.authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
                 auth.login(request, user)
