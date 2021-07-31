@@ -172,19 +172,19 @@ USE_TZ = True
 # STATIC_URL = 'https://tripple-run.s3.amazonaws.com/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-# MEDIA_URL = 'https://tripple-run.s3.amazonaws.com/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'https://tripple-run.s3.amazonaws.com/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # -------------------------------------------------------------------------
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
 
-]
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 django_heroku.settings(locals())
 
@@ -243,18 +243,18 @@ CART_SESSION_ID = 'cart'
 # ---------------------------------------------------------
 #S3 BUCKETS CONFIG
 
-# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# AWS_S3_REGION_NAME = 'us-east-2' #change to your region
-# AWS_S3_SIGNATURE_VERSION = 's3v4'
-# AWS_S3_ADDRESSING_STYLE = "virtual"
-# AWS_DEFAULT_ACL = 'private'
+AWS_S3_REGION_NAME = 'us-east-2' #change to your region
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_ADDRESSING_STYLE = "virtual"
+AWS_DEFAULT_ACL = 'private'
 # --------------------------------------------------------------------
 # AWS_QUERYSTRING_AUTH = False
 
