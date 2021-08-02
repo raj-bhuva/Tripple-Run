@@ -300,47 +300,23 @@ providers_media_js %} {% endcomment %}
   <!-- Latest-------------------------------------------------------------------------------------------------------------------- -->
   <div class="section-011">
     <div class="container">
-      <div class="smoak-heading style-01">
+      <div class="furgan-heading style-01">
         <div class="heading-inner">
-          <h3 class="title">New Arrival</h3>
-          <div class="subtitle">Latest arrivals on TrippleRun</div>
+          <h3 class="title">Exclusive Designs</h3>
+          <div class="subtitle">
+            Explore many creative design only on TrippleRun
+          </div>
         </div>
       </div>
-      <div class="smoak-products style-04">
+      <div class="furgan-products style-04">
         <div
-          class="
-            response-product
-            product-list-owl
-            owl-slick
-            equal-container
-            better-height
-          "
+          class="response-product product-list-owl owl-slick equal-container better-height"
           data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
           data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
         >
-          {% for product in latest_products %}
+          {% for product in feature_products %}
           <div
-            class="
-              product-item
-              recent-product
-              style-04
-              rows-space-0
-              post-93
-              product
-              type-product
-              status-publish
-              has-post-thumbnail
-              product_cat-light
-              product_cat-table
-              product_cat-new-arrivals
-              product_tag-table
-              product_tag-sock
-              first
-              instock
-              shipping-taxable
-              purchasable
-              product-type-simple
-            "
+            class="product-item recent-product style-04 rows-space-0 post-93 product type-product status-publish has-post-thumbnail product_cat-light product_cat-table product_cat-new-arrivals product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-simple"
           >
             <div class="product-inner tooltip-top tooltip-all-top">
               <div class="product-thumb st_designthumb st_df shadow">
@@ -353,7 +329,7 @@ providers_media_js %} {% endcomment %}
                     style="width: 100%; object-fit: contain"
                     class="img-responsive"
                     src="{{product.image.url}}"
-                    alt="Tripple Run "
+                    alt="Woody Table"
                     width="270"
                     height="350"
                   />
