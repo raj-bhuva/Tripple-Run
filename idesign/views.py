@@ -580,6 +580,7 @@ def search1(request, query):
             alll = Web.objects.filter(
                 Q(name__icontains=query) | Q(design_code__icontains=query) | Q(area__icontains=searchquery))
         else:
+            # heare instead of alll there is products .
             alll = Web.objects.all()
 
         filtered_qs = ProductFilter(request.GET, queryset=alll)
