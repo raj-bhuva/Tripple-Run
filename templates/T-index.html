@@ -171,6 +171,7 @@ providers_media_js %} {% endcomment %}
   </main>
 
   <!-- Exclusive---------------------------------------------------------------------------------------------------------------- -->
+  {% comment %}
   <div class="section-011">
     <div class="container">
       <div class="smoak-heading style-01">
@@ -265,7 +266,7 @@ providers_media_js %} {% endcomment %}
                       </div>
                     </div>
                   </form>
-                  {% endcomment %}
+                  {% endcomment %} {% comment %}
                 </div>
               </div>
               <div class="product-info">
@@ -278,7 +279,7 @@ providers_media_js %} {% endcomment %}
                     >{{product.design_code}}</span
                   ></span
                 >
-                {% comment %}
+                {% endcomment %} {% comment %}
                 <div class="rating-wapper nostar">
                   <div class="star-rating">
                     <span style="width: 0%"
@@ -287,7 +288,7 @@ providers_media_js %} {% endcomment %}
                   </div>
                   <span class="review">(0)</span>
                 </div>
-                {% endcomment %}
+                {% endcomment %} {% comment %}
               </div>
             </div>
           </div>
@@ -296,7 +297,133 @@ providers_media_js %} {% endcomment %}
       </div>
     </div>
   </div>
-
+  {% endcomment %}
+  <div class="section-011">
+    <div class="container">
+      <div class="furgan-heading style-01">
+        <div class="heading-inner">
+          <h3 class="title">Exclusive Designs</h3>
+          <div class="subtitle">
+            Explore many creative design only on TrippleRun
+          </div>
+        </div>
+      </div>
+      <div class="furgan-products style-04">
+        <div
+          class="
+            response-product
+            product-list-owl
+            owl-slick
+            equal-container
+            better-height
+          "
+          data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
+          data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
+        >
+          {% for product in feature_products %}
+          <div
+            class="
+              product-item
+              recent-product
+              style-04
+              rows-space-0
+              post-93
+              product
+              type-product
+              status-publish
+              has-post-thumbnail
+              product_cat-light
+              product_cat-table
+              product_cat-new-arrivals
+              product_tag-table
+              product_tag-sock
+              first
+              instock
+              shipping-taxable
+              purchasable
+              product-type-simple
+            "
+          >
+            <div class="product-inner tooltip-top tooltip-all-top">
+              <div class="product-thumb st_designthumb st_df shadow">
+                <a
+                  class="thumb-link"
+                  href="/singal-products/{{product.id}}"
+                  tabindex="0"
+                >
+                  <img
+                    style="width: 100%; object-fit: contain"
+                    class="img-responsive"
+                    src="{{product.image.url}}"
+                    alt="Woody Table"
+                    width="270"
+                    height="350"
+                  />
+                </a>
+                {% if product.New %}
+                <div class="flash">
+                  <span class="onnew"><span class="text">New</span></span>
+                </div>
+                {% endif %}
+                <div class="group-button">
+                  {% comment %}
+                  <div class="add-to-cart">
+                    <a
+                      href="#"
+                      class="
+                        button
+                        product_type_simple
+                        add_to_cart_button
+                        ajax_add_to_cart
+                      "
+                      >Add to cart</a
+                    >
+                  </div>
+                  <a href="#" class="button yith-wcqv-button">Quick View</a>
+                  <div class="furgan product compare-button">
+                    <a href="#" class="compare button">Compare</a>
+                  </div>
+                  {% endcomment %}
+                  <!-- <form action="{% url 'like_post' product.pk %}" method="POST">
+                    {% csrf_token %}
+                    <div class="yith-wcwl-add-to-wishlist">
+                      <div class="yith-wcwl-add-button show">
+                        <a
+                          
+                          class="add_to_wishlist"
+                          >Add To Wishlist</a
+                        >
+                      </div>
+                    </div>
+                  </form> -->
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name product_title">
+                  <a href="#" tabindex="0">{{product.name}}</a>
+                </h3>
+                <span class="price"
+                  ><span class="furgan-Price-amount amount"
+                    ><span class="furgan-Price-currencySymbol"></span
+                    >{{product.design_code}}</span
+                  ></span
+                >
+                <div class="rating-wapper nostar">
+                  <div class="star-rating">
+                    <span style="width: 0%"
+                      >Rated <strong class="rating">0</strong> out of 5</span
+                    >
+                  </div>
+                  <span class="review">(0)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Latest-------------------------------------------------------------------------------------------------------------------- -->
   <div class="section-011">
     <div class="container">
