@@ -521,7 +521,7 @@ def search(request):
                 Q(name__icontains=searchquery) | Q(design_code__icontains=searchquery) | Q(area__icontains=searchquery))
 
         else:
-            products = Web.objects.all()
+            alll = Web.objects.all()
 
         filtered_qs = ProductFilter(request.GET, queryset=alll)
         filtered_qs_form = filtered_qs.form
