@@ -190,6 +190,7 @@ def singal_product(request, id):
         'Key': filename
     })
     # get category tag
+    related_design = []
     categories = get_category(request)
     for category in categories:
         if context["data"].category_id == category.id:
