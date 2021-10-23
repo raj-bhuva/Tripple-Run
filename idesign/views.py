@@ -207,7 +207,7 @@ def singal_product(request, id):
             if context["data"].category_id == subcategory.id:
                 # context["category"] = category
                 # get related products
-                related_design.append(list(Web.objects.filter(category_id=subcategory.id)))
+                related_design = list(Web.objects.filter(category_id=subcategory.id))
 
     context["related_designs"] = related_design[::-1]
     context['feature_products'] = get_feature_products(request)
