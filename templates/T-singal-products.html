@@ -5,7 +5,7 @@
 <div class="fullwidth-template ">
     <div class="banner-wrapper no_background">
       <div class="banner-wrapper-inner">
-        <nav class="smoak-breadcrumb">
+        <nav class="smoak-breadcrumb">  
           <a href="/">Home</a><i class="fa fa-angle-right"></i
           ><a href="/products">Shop</a> <i class="fa fa-angle-right"></i>Single Product
         </nav>
@@ -28,13 +28,13 @@
                     <div
                       class="smoak-product-gallery smoak-product-gallery--with-images smoak-product-gallery--columns-4 images"
                     >
-                      {% comment %} <a href="#" class="smoak-product-gallery__trigger">
+                      <a href="#" class="smoak-product-gallery__trigger">
                         <img
                           draggable="false"
                           class="emoji"
                           alt="🔍"
                           src="https://s.w.org/images/core/emoji/11/svg/1f50d.svg"
-                      /></a> {% endcomment %}
+                      /></a>
                        <div class="flex-viewport ">
                         <figure class="smoak-product-gallery__wrapper "> 
                           <div class="smoak-product-gallery__image ">
@@ -64,7 +64,12 @@
                         </figure>
                       </div>
                       <ol class="flex-control-nav flex-control-thumbs">
-                       
+                      <li>
+                          <img
+                            src = {{data.img.url}}
+                            alt="img"
+                          />
+                      </li>
                       {% for all in allimg %}
                         
                         <li>
@@ -75,12 +80,7 @@
                           />
                         </li>
                       {% endfor %}
-                      <li>
-                          <img
-                            src = {{data.img.url}}
-                            alt="img"
-                          />
-                      </li>
+                      
                         {% comment %} <li>
                           <img
                             src="{%static 'assets/images/apro134-1-100x100.jpg' %}"
