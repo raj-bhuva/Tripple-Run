@@ -5,7 +5,7 @@
 <div class="fullwidth-template ">
     <div class="banner-wrapper no_background">
       <div class="banner-wrapper-inner">
-        <nav class="smoak-breadcrumb">  
+        <nav class="furgan-breadcrumb">
           <a href="/">Home</a><i class="fa fa-angle-right"></i
           ><a href="/products">Shop</a> <i class="fa fa-angle-right"></i>Single Product
         </nav>
@@ -41,10 +41,10 @@
                             <img
                               style="width: 100%; object-fit: contain; border:1px solid black;" alt="img" src={{data.image.url}} height="400"/>
                           </div>
-                            {% comment %} <div class="smoak-product-gallery__image">
+                            {% comment %} <div class="furgan-product-gallery__image">
                               <img src="{%static 'assets/images/apro134-1.jpg' %}" alt="img" />
                             </div>
-                            <div class="smoak-product-gallery__image">
+                            <div class="furgan-product-gallery__image">
                               <img
                                 src="{%static  'assets/images/apro132-1.jpg' %}"
                                 class=""
@@ -53,7 +53,7 @@
                             </div> {% endcomment %}
                             
                           {% for all in allimg %}
-                            <div class="smoak-product-gallery__image">
+                            <div class="furgan-product-gallery__image">
                               <img
                                 src = {{all.images.url}}
                                 alt="img"
@@ -64,12 +64,7 @@
                         </figure>
                       </div>
                       <ol class="flex-control-nav flex-control-thumbs">
-                      <li>
-                          <img
-                            alt="img" src = {{data.img.url}}
-                            
-                          />
-                      </li>
+                       
                       {% for all in allimg %}
                         
                         <li>
@@ -80,7 +75,12 @@
                           />
                         </li>
                       {% endfor %}
-                      
+                      <li>
+                          <img
+                            src = {{data.img.url}}
+                            alt="img"
+                          />
+                      </li>
                         {% comment %} <li>
                           <img
                             src="{%static 'assets/images/apro134-1-100x100.jpg' %}"
@@ -131,22 +131,27 @@
                       <span class="sku_wrapper"
                         >Design Format:   <span class="sku">{{data.design_type}}</span></span
                       >
-                      
+                      {% comment %} <span class="posted_in"
+                        >Categories: <a href="#" rel="tag">Table</a>,
+                        <a href="#" rel="tag">New arrivals</a>,
+                        <a href="#" rel="tag">Lamp</a></span
+                      > {% endcomment %}
                       <span class="posted_in"
-                        >Categories: <a href="#" rel="tag">{{data.category}}</a>
+                        >Categories: <a href="#" rel="tag">{{data.category}}</a>,
                         </span
                       >
-                      {% comment %} <span class="tagged_as"
+                      <span class="tagged_as"
                         >Tags: <a href="#" rel="tag">Table</a>,
                         <a href="#" rel="tag">Sock</a></span
-                      > {% endcomment %}
+                      >
                     </div>
-                    <div class="smoak-product-details__short-description">
+                    <div class="furgan-product-details__short-description">
                       <ul>
                         <li>
                           {{data.description}}
                         </li>
-                        
+                        {% comment %} <li>CLean zip-front, and three piece hood</li>
+                        <li>Subtle branding and diagonal panel detail</li> {% endcomment %}
                       </ul>
                     </div>
                     {% if user.is_authenticated %}
@@ -175,13 +180,25 @@
 
                     {% endif %}
                     </br> 
-                    <div class="smoak-share-socials">
+                    <div class="furgan-share-socials">
                       <h5 class="social-heading">Share:</h5>
                       {% post_to_facebook object_or_url%}
                       {% post_to_telegram "TrippleRun: {{object.title}}" object_or_url %}
                       {% save_to_pinterest object_or_url %}
+                      {% comment %} {% add_pinterest_script %} {% endcomment %}
                       {% post_to_whatsapp object_or_url%}
-                      
+                      {% comment %} <a target="_blank" class="facebook" href="#">
+                        <i class="fa fa-facebook-f"></i>
+                      </a>
+                      <a target="_blank" class="twitter" href="#"
+                        ><i class="fa fa-twitter"></i>
+                      </a>
+                      <a target="_blank" class="pinterest" href="#">
+                        <i class="fa fa-pinterest"></i>
+                      </a>
+                      <a target="_blank" class="googleplus" href="#"
+                        ><i class="fa fa-google-plus"></i>
+                      </a> {% endcomment %}
                     </div>
                   </div>
                 </div>
@@ -190,7 +207,7 @@
           </div>
           <div class="sidebar col-xl-3 col-lg-4 col-md-4 col-sm-12">
             <div id="widget-area" class="widget-area shop-sidebar">
-              <div id="smoak_products-2" class="widget smoak widget_products">
+              <div id="furgan_products-2" class="widget furgan widget_products">
                 <h2 class="widgettitle">
                   Featured Products<span class="arrow"></span>
                 </h2>
@@ -205,18 +222,18 @@
                       <img
                         style="width: 100%; object-fit: contain"
                         src="{{product.image.url}}"
-                        class="attachment-smoak_thumbnail size-smoak_thumbnail"
+                        class="attachment-furgan_thumbnail size-furgan_thumbnail"
                         alt="img"
                         width="150"
                         height="150"
                       />
                       <span class="product-title">Name : {{product.name}}</span>
                     </a>
-                    <span class="smoak-Price-amount amount"
-                      ><span class="smoak-Price-currencySymbol"></span
+                    <span class="furgan-Price-amount amount"
+                      ><span class="furgan-Price-currencySymbol"></span
                       >SKU : {{product.design_code}}</span
                     >
-                    {% comment %} <div class="rating-wapper nostar">
+                    <div class="rating-wapper nostar">
                       <div class="star-rating">
                         <span style="width: 0%"
                           >Rated <strong class="rating">0</strong> out of
@@ -224,7 +241,7 @@
                         >
                       </div>
                       <span class="review">(0)</span>
-                    </div> {% endcomment %}
+                    </div>
                   </li>
                   {%endif%}
                   {%endfor%}
@@ -234,19 +251,18 @@
           </div>
         </div>
       </div>
-    </div>
       </br>
       <!-- related designs------------------------------------------------------------------------ -->
 
       <div class="section-011">
         <div class="container">
-          <div class="smoak-heading style-01">
+          <div class="furgan-heading style-01">
             <div class="heading-inner">
               <h3 class="title">Realted Designs</h3>
               
             </div>
           </div>
-          <div class="smoak-products style-04">
+          <div class="furgan-products style-04">
             <div
               class="response-product product-list-owl owl-slick equal-container better-height"
               data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
@@ -278,33 +294,45 @@
                     <div class="flash">
                       <span class="onnew"><span class="text">New</span></span>
                     </div>
-                    {% comment %} <div class="group-button">
-                      
+                    <div class="group-button">
+                      {% comment %}
+                      <div class="add-to-cart">
+                        <a
+                          href="#"
+                          class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                          >Add to cart</a
+                        >
+                      </div>
+                      <a href="#" class="button yith-wcqv-button">Quick View</a>
+                      <div class="furgan product compare-button">
+                        <a href="#" class="compare button">Compare</a>
+                      </div>
+                      {% endcomment %}
                       <div class="yith-wcwl-add-to-wishlist">
                         <div class="yith-wcwl-add-button show">
                           <a href="#" class="add_to_wishlist">Add to Wishlist</a>
                         </div>
                       </div>
-                    </div> {% endcomment %}
+                    </div>
                   </div>
                   <div class="product-info">
                     <h3 class="product-name product_title">
-                      <a href="/singal-products/{{product.id}}" tabindex="0">Name : {{product.name}}</a>
+                      <a href="#" tabindex="0">Name : {{product.name}}</a>
                     </h3>
                     <span class="price"
-                      ><span class="smoak-Price-amount amount"
-                        ><span class="smoak-Price-currencySymbol"></span
+                      ><span class="furgan-Price-amount amount"
+                        ><span class="furgan-Price-currencySymbol"></span
                         >SKU : {{product.design_code}}</span
                       ></span
                     >
-                    {% comment %} <div class="rating-wapper nostar">
+                    <div class="rating-wapper nostar">
                       <div class="star-rating">
                         <span style="width: 0%"
                           >Rated <strong class="rating">0</strong> out of 5</span
                         >
                       </div>
                       <span class="review">(0)</span>
-                    </div> {% endcomment %}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -315,5 +343,6 @@
         </div>
       </div>
     </div>
+</div>
 
 {% endblock %}
