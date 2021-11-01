@@ -2,347 +2,307 @@
 <div class="alert alert-danger text-center" role="alert">
                       For download Designs <a href="/login" class="alert-link">Login</a> Required (Please Login/Register)
                     </div>
-<div class="fullwidth-template ">
+
     <div class="banner-wrapper no_background">
       <div class="banner-wrapper-inner">
-        <nav class="furgan-breadcrumb">
+        <nav class="smoak-breadcrumb">  
           <a href="/">Home</a><i class="fa fa-angle-right"></i
           ><a href="/products">Shop</a> <i class="fa fa-angle-right"></i>Single Product
         </nav>
       </div>
     </div>
     <div class="single-thumb-vertical main-container shop-page right-sidebar">
-      <div class="container">
+    <div class="container">
         <div class="row">
-          <div
-            class="main-content col-xl-9 col-lg-8 col-md-8 col-sm-12 has-sidebar"
-          >
-            <div class="furgan-notices-wrapper"></div>
-            <div
-              id="product-27"
-              class="post-27 product type-product status-publish has-post-thumbnail product_cat-table product_cat-new-arrivals product_cat-lamp product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-variable has-default-attributes"
-            >
-              <div class="main-contain-summary">
-                <div class="contain-left has-gallery">
-                  <div class="single-left">
-                    <div
-                      class="furgan-product-gallery furgan-product-gallery--with-images furgan-product-gallery--columns-4 images"
-                    >
-                      <a href="#" class="furgan-product-gallery__trigger">
-                        <img
-                          draggable="false"
-                          class="emoji"
-                          alt="🔍"
-                          src="https://s.w.org/images/core/emoji/11/svg/1f50d.svg"
-                      /></a>
-                       <div class="flex-viewport ">
-                        <figure class="furgan-product-gallery__wrapper "> 
-                          <div class="furgan-product-gallery__image ">
-                            <img
-                              style="width: 100%; object-fit: contain; border:1px solid black;" alt="img" src={{data.image.url}} height="400"/>
-                          </div>
-                            {% comment %} <div class="furgan-product-gallery__image">
-                              <img src="{%static 'assets/images/apro134-1.jpg' %}" alt="img" />
-                            </div>
-                            <div class="furgan-product-gallery__image">
-                              <img
-                                src="{%static  'assets/images/apro132-1.jpg' %}"
-                                class=""
-                                alt="img"
-                              />
-                            </div> {% endcomment %}
+            <div class="main-content col-xl-9 col-lg-8 col-md-8 col-sm-12 has-sidebar">
+                <div class="furgan-notices-wrapper"></div>
+                <div id="product-27"
+                     class="post-27 product type-product status-publish has-post-thumbnail product_cat-table product_cat-new-arrivals product_cat-lamp product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-variable has-default-attributes">
+                    <div class="main-contain-summary">
+                        <div class="contain-left has-gallery">
+                            <div class="single-left">
+                                <div class="furgan-product-gallery furgan-product-gallery--with-images furgan-product-gallery--columns-4 images">
+                                    <a href="#" class="furgan-product-gallery__trigger">
+                                        <img draggable="false" class="emoji" alt="🔍"
+                                             src="https://s.w.org/images/core/emoji/11/svg/1f50d.svg"></a>
+                                    <div class="flex-viewport">
+                                      <figure class="smoak-product-gallery__wrapper "> 
+                                        <div class="smoak-product-gallery__image ">
+                                          <img alt="img" src={{data.image.url}} />
+                                        </div>
+                                        {% comment %} <div class="smoak-product-gallery__image">
+                                          <img src="{%static 'assets/images/apro134-1.jpg' %}" alt="img" />
+                                        </div>
+                                        <div class="smoak-product-gallery__image">
+                                          <img
+                                            src="{%static  'assets/images/apro132-1.jpg' %}"
+                                            class=""
+                                            alt="img"
+                                          />
+                                        </div> {% endcomment %}
                             
-                          {% for all in allimg %}
-                            <div class="furgan-product-gallery__image">
-                              <img
-                                src = {{all.images.url}}
-                                alt="img"
-                              />
-                            </div>
-                          {% endfor %}
+                                        {% for all in allimg %}
+                                          <div class="smoak-product-gallery__image">
+                                            <img
+                                              src = {{all.images.url}}
+                                              alt="img"
+                                            />
+                                          </div>
+                                        {% endfor %}
                           
-                        </figure>
-                      </div>
-                      <ol class="flex-control-nav flex-control-thumbs">
-                       
-                      {% for all in allimg %}
+                                      </figure>
+                                    </div>
+                                    <ol class="flex-control-nav flex-control-thumbs">
+                                      <li>
+                                          <img
+                                            alt="img" src = {{data.img.url}}
+                                            
+                                          />
+                                      </li>
+                                      {% for all in allimg %}
                         
-                        <li>
-                          <img
-                            src = {{all.images.url}}
-                            {% comment %} src="{%static 'assets/images/apro131-2-100x100.jpg' %}" {% endcomment %}
-                            alt="img"
-                          />
-                        </li>
-                      {% endfor %}
-                      <li>
-                          <img
-                            src = {{data.img.url}}
-                            alt="img"
-                          />
-                      </li>
-                        {% comment %} <li>
-                          <img
-                            src="{%static 'assets/images/apro134-1-100x100.jpg' %}"
-                            alt="img"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="{%static 'assets/images/apro132-1-100x100.jpg' %}"
-                            alt="img"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="{%static 'assets/images/apro133-1-100x100.jpg' %}"
-                            alt="img"
-                          />
-                        </li> {% endcomment %}
-                      </ol>
-                    </div> 
-                  </div>
-                  <div class="summary entry-summary">
-                    <div class="flash">
-                      <span class="onnew"><span class="text">New</span></span>
-                    </div>
-                    <h1 class="product_title entry-title">
-                      Name : {{data.name}}
-                    </h1>
-                    {% comment %} <p class="stock in-stock">
-                      Download: <span>Free</span>
-                    </p> {% endcomment %}
-                    <div class="product_meta">
-                      <h1 class="product_title entry-title sku_wrapper stock in-stock"
-                        >Price: <span>0 &#8377;</span></h1
-                      >
-                      <span class="sku_wrapper"
-                        >SKU: <span class="sku">{{data.design_code}}</span></span
-                      >
-                      <span class="sku_wrapper"
-                        >Area: <span class="sku">{{data.area}}</span></span
-                      >
-                      <span class="sku_wrapper"
-                        >Needle: <span class="sku">{{data.needle}}</span></span
-                      >
-                      <span class="sku_wrapper"
-                        >Stitches:  <span class="sku">{{data.stitch}}</span></span
-                      >
-                      <span class="sku_wrapper"
-                        >Design Format:   <span class="sku">{{data.design_type}}</span></span
-                      >
-                      {% comment %} <span class="posted_in"
-                        >Categories: <a href="#" rel="tag">Table</a>,
-                        <a href="#" rel="tag">New arrivals</a>,
-                        <a href="#" rel="tag">Lamp</a></span
-                      > {% endcomment %}
-                      <span class="posted_in"
-                        >Categories: <a href="#" rel="tag">{{data.category}}</a>,
-                        </span
-                      >
-                      <span class="tagged_as"
-                        >Tags: <a href="#" rel="tag">Table</a>,
-                        <a href="#" rel="tag">Sock</a></span
-                      >
-                    </div>
-                    <div class="furgan-product-details__short-description">
-                      <ul>
-                        <li>
-                          {{data.description}}
-                        </li>
-                        {% comment %} <li>CLean zip-front, and three piece hood</li>
-                        <li>Subtle branding and diagonal panel detail</li> {% endcomment %}
-                      </ul>
-                    </div>
-                    {% if user.is_authenticated %}
-                    {% comment %} {% for i in allfile%} {% endcomment %}
-                    <a href="{{allfile}}" download>
-                      <button 
-                        type="submit"
-                        class="add_to_cart_button button alt"
-                      > Download
-                      </button>
-                    </a>
-                    {% comment %} {% endfor %} {% endcomment %}
-                    {% else %}
-                    <a href="#">
-                      <button 
-                        id="ImageHosting"
-                        onclick="ImageHosting_Click()"
-                        type="submit"
-                        class="add_to_cart_button button alt"
-                      > Download
-                      </button>
-                    </a>
-                  
-                    
+                                        <li>
+                                          <img
+                                            src = {{all.images.url}}
+                                            {% comment %} src="{%static 'assets/images/apro131-2-100x100.jpg' %}" {% endcomment %}
+                                            alt="img"
+                                          />
+                                        </li>
+                                      {% endfor %}
+                      
+                                      {% comment %} <li>
+                                        <img
+                                          src="{%static 'assets/images/apro134-1-100x100.jpg' %}"
+                                          alt="img"
+                                        />
+                                      </li>
+                                      <li>
+                                        <img
+                                          src="{%static 'assets/images/apro132-1-100x100.jpg' %}"
+                                          alt="img"
+                                        />
+                                      </li>
+                                      <li>
+                                        <img
+                                          src="{%static 'assets/images/apro133-1-100x100.jpg' %}"
+                                          alt="img"
+                                        />
+                                      </li> {% endcomment %}
+                                    </ol>
+                                </div> 
+                              </div>
+                              <div class="summary entry-summary">
+                                <div class="flash">
+                                  <span class="onnew"><span class="text">New</span></span>
+                                </div>
+                                <h1 class="product_title entry-title">
+                                  Name : {{data.name}}
+                                </h1>
+                                {% comment %} <p class="stock in-stock">
+                                  Download: <span>Free</span>
+                                </p> {% endcomment %}
+                                <div class="product_meta">
+                                  <h1 class="product_title entry-title sku_wrapper stock in-stock"
+                                    >Price: <span>0 &#8377;</span></h1
+                                  >
+                                  <span class="sku_wrapper"
+                                    >SKU: <span class="sku">{{data.design_code}}</span></span
+                                  >
+                                  <span class="sku_wrapper"
+                                    >Area: <span class="sku">{{data.area}}</span></span
+                                  >
+                                  <span class="sku_wrapper"
+                                    >Needle: <span class="sku">{{data.needle}}</span></span
+                                  >
+                                  <span class="sku_wrapper"
+                                    >Stitches:  <span class="sku">{{data.stitch}}</span></span
+                                  >
+                                  <span class="sku_wrapper"
+                                    >Design Format:   <span class="sku">{{data.design_type}}</span></span
+                                  >
+                                  
+                                  <span class="posted_in"
+                                    >Categories: <a href="#" rel="tag">{{data.category}}</a>
+                                    </span
+                                  >
+                                  {% comment %} <span class="tagged_as"
+                                    >Tags: <a href="#" rel="tag">Table</a>,
+                                    <a href="#" rel="tag">Sock</a></span
+                                  > {% endcomment %}
+                                </div>
+                                <div class="smoak-product-details__short-description">
+                                  <ul>
+                                    <li>
+                                      {{data.description}}
+                                    </li>
+                                    
+                                  </ul>
+                                </div>
+                                {% if user.is_authenticated %}
+                                {% comment %} {% for i in allfile%} {% endcomment %}
+                                <a href="{{allfile}}" download>
+                                  <button 
+                                    type="submit"
+                                    class="add_to_cart_button button alt"
+                                  > Download
+                                  </button>
+                                </a>
+                                {% comment %} {% endfor %} {% endcomment %}
+                                {% else %}
+                                <a href="#">
+                                  <button 
+                                    id="ImageHosting"
+                                    onclick="ImageHosting_Click()"
+                                    type="submit"
+                                    class="add_to_cart_button button alt"
+                                  > Download
+                                  </button>
+                                </a>
+                              
+                                
 
 
-                    {% endif %}
-                    </br> 
-                    <div class="furgan-share-socials">
-                      <h5 class="social-heading">Share:</h5>
-                      {% post_to_facebook object_or_url%}
-                      {% post_to_telegram "TrippleRun: {{object.title}}" object_or_url %}
-                      {% save_to_pinterest object_or_url %}
-                      {% comment %} {% add_pinterest_script %} {% endcomment %}
-                      {% post_to_whatsapp object_or_url%}
-                      {% comment %} <a target="_blank" class="facebook" href="#">
-                        <i class="fa fa-facebook-f"></i>
-                      </a>
-                      <a target="_blank" class="twitter" href="#"
-                        ><i class="fa fa-twitter"></i>
-                      </a>
-                      <a target="_blank" class="pinterest" href="#">
-                        <i class="fa fa-pinterest"></i>
-                      </a>
-                      <a target="_blank" class="googleplus" href="#"
-                        ><i class="fa fa-google-plus"></i>
-                      </a> {% endcomment %}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="sidebar col-xl-3 col-lg-4 col-md-4 col-sm-12">
-            <div id="widget-area" class="widget-area shop-sidebar">
-              <div id="furgan_products-2" class="widget furgan widget_products">
-                <h2 class="widgettitle">
-                  Featured Products<span class="arrow"></span>
-                </h2>
-                {% for product in feature_products %}
-                {% if product.design_code == data.design_code%}
-                  
-                {% else %}
-                <ul style="padding:0px" class="product_list_widget">
-                
-                  <li>
-                    <a href="/singal-products/{{product.id}}">
-                      <img
-                        style="width: 100%; object-fit: contain"
-                        src="{{product.image.url}}"
-                        class="attachment-furgan_thumbnail size-furgan_thumbnail"
-                        alt="img"
-                        width="150"
-                        height="150"
-                      />
-                      <span class="product-title">Name : {{product.name}}</span>
-                    </a>
-                    <span class="furgan-Price-amount amount"
-                      ><span class="furgan-Price-currencySymbol"></span
-                      >SKU : {{product.design_code}}</span
-                    >
-                    <div class="rating-wapper nostar">
-                      <div class="star-rating">
-                        <span style="width: 0%"
-                          >Rated <strong class="rating">0</strong> out of
-                          5</span
-                        >
+                                {% endif %}
+                                </br> 
+                                <div class="smoak-share-socials">
+                                  <h5 class="social-heading">Share:</h5>
+                                  {% post_to_facebook object_or_url%}
+                                  {% post_to_telegram "TrippleRun: {{object.title}}" object_or_url %}
+                                  {% save_to_pinterest object_or_url %}
+                                  {% post_to_whatsapp object_or_url%}
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <span class="review">(0)</span>
-                    </div>
-                  </li>
-                  {%endif%}
-                  {%endfor%}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </br>
-      <!-- related designs------------------------------------------------------------------------ -->
-
-      <div class="section-011">
-        <div class="container">
-          <div class="furgan-heading style-01">
-            <div class="heading-inner">
-              <h3 class="title">Realted Designs</h3>
-              
-            </div>
-          </div>
-          <div class="furgan-products style-04">
-            <div
-              class="response-product product-list-owl owl-slick equal-container better-height"
-              data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
-              data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
-            >
-              {% for product in related_designs %}
-              {% if product.design_code == data.design_code%}
-                
-              {% else %}
-              <div
-                class="product-item recent-product style-04 rows-space-0 post-93 product type-product status-publish has-post-thumbnail product_cat-light product_cat-table product_cat-new-arrivals product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-simple"
-              >
-                <div class="product-inner tooltip-top tooltip-all-top">
-                  <div class="product-thumb st_designthumb st_df shadow">
-                    <a
-                      class="thumb-link"
-                      href="/singal-products/{{product.id}}"
-                      tabindex="0"
-                    >
-                      <img
-                        style="width: 100%; object-fit: contain"
-                        class="img-responsive"
-                        src="{{product.image.url}}"
-                        alt="Woody Table"
-                        width="270"
-                        height="350"
-                      />
-                    </a>
-                    <div class="flash">
-                      <span class="onnew"><span class="text">New</span></span>
-                    </div>
-                    <div class="group-button">
-                      {% comment %}
-                      <div class="add-to-cart">
-                        <a
-                          href="#"
-                          class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                          >Add to cart</a
-                        >
-                      </div>
-                      <a href="#" class="button yith-wcqv-button">Quick View</a>
-                      <div class="furgan product compare-button">
-                        <a href="#" class="compare button">Compare</a>
-                      </div>
-                      {% endcomment %}
-                      <div class="yith-wcwl-add-to-wishlist">
-                        <div class="yith-wcwl-add-button show">
-                          <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                      <div class="sidebar col-xl-3 col-lg-4 col-md-4 col-sm-12">
+                        <div id="widget-area" class="widget-area shop-sidebar">
+                          <div id="smoak_products-2" class="widget smoak widget_products">
+                            <h2 class="widgettitle">
+                              Featured Products<span class="arrow"></span>
+                            </h2>
+                            {% for product in feature_products %}
+                            {% if product.design_code == data.design_code%}
+                              
+                            {% else %}
+                            <ul style="padding:0px" class="product_list_widget">
+                            
+                              <li>
+                                <a href="/singal-products/{{product.id}}">
+                                  <img
+                                    style="width: 100%; object-fit: contain"
+                                    src="{{product.image.url}}"
+                                    class="attachment-smoak_thumbnail size-smoak_thumbnail"
+                                    alt="img"
+                                    width="150"
+                                    height="150"
+                                  />
+                                  <span class="product-title">Name : {{product.name}}</span>
+                                </a>
+                                <span class="smoak-Price-amount amount"
+                                  ><span class="smoak-Price-currencySymbol"></span
+                                  >SKU : {{product.design_code}}</span
+                                >
+                                {% comment %} <div class="rating-wapper nostar">
+                                  <div class="star-rating">
+                                    <span style="width: 0%"
+                                      >Rated <strong class="rating">0</strong> out of
+                                      5</span
+                                    >
+                                  </div>
+                                  <span class="review">(0)</span>
+                                </div> {% endcomment %}
+                              </li>
+                              {%endif%}
+                              {%endfor%}
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
+                </div>
+            </div>
+            </br>
+            <!-- related designs------------------------------------------------------------------------ -->
+
+            <div class="section-011">
+              <div class="container">
+                <div class="smoak-heading style-01">
+                  <div class="heading-inner">
+                    <h3 class="title">Realted Designs</h3>
+                    
                   </div>
-                  <div class="product-info">
-                    <h3 class="product-name product_title">
-                      <a href="#" tabindex="0">Name : {{product.name}}</a>
-                    </h3>
-                    <span class="price"
-                      ><span class="furgan-Price-amount amount"
-                        ><span class="furgan-Price-currencySymbol"></span
-                        >SKU : {{product.design_code}}</span
-                      ></span
+                </div>
+                <div class="smoak-products style-04">
+                  <div
+                    class="response-product product-list-owl owl-slick equal-container better-height"
+                    data-slick='{"arrows":true,"slidesMargin":30,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1}'
+                    data-responsive='[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesMargin":"20"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"30"}}]'
+                  >
+                    {% for product in related_designs %}
+                    {% if product.design_code == data.design_code%}
+                      
+                    {% else %}
+                    <div
+                      class="product-item recent-product style-04 rows-space-0 post-93 product type-product status-publish has-post-thumbnail product_cat-light product_cat-table product_cat-new-arrivals product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-simple"
                     >
-                    <div class="rating-wapper nostar">
-                      <div class="star-rating">
-                        <span style="width: 0%"
-                          >Rated <strong class="rating">0</strong> out of 5</span
-                        >
+                      <div class="product-inner tooltip-top tooltip-all-top">
+                        <div class="product-thumb st_designthumb st_df shadow">
+                          <a
+                            class="thumb-link"
+                            href="/singal-products/{{product.id}}"
+                            tabindex="0"
+                          >
+                            <img
+                              style="width: 100%; object-fit: contain"
+                              class="img-responsive"
+                              src="{{product.image.url}}"
+                              alt="Woody Table"
+                              width="270"
+                              height="350"
+                            />
+                          </a>
+                          <div class="flash">
+                            <span class="onnew"><span class="text">New</span></span>
+                          </div>
+                          {% comment %} <div class="group-button">
+                            
+                            <div class="yith-wcwl-add-to-wishlist">
+                              <div class="yith-wcwl-add-button show">
+                                <a href="#" class="add_to_wishlist">Add to Wishlist</a>
+                              </div>
+                            </div>
+                          </div> {% endcomment %}
+                        </div>
+                        <div class="product-info">
+                          <h3 class="product-name product_title">
+                            <a href="/singal-products/{{product.id}}" tabindex="0">Name : {{product.name}}</a>
+                          </h3>
+                          <span class="price"
+                            ><span class="smoak-Price-amount amount"
+                              ><span class="smoak-Price-currencySymbol"></span
+                              >SKU : {{product.design_code}}</span
+                            ></span
+                          >
+                          {% comment %} <div class="rating-wapper nostar">
+                            <div class="star-rating">
+                              <span style="width: 0%"
+                                >Rated <strong class="rating">0</strong> out of 5</span
+                              >
+                            </div>
+                            <span class="review">(0)</span>
+                          </div> {% endcomment %}
+                        </div>
                       </div>
-                      <span class="review">(0)</span>
                     </div>
+                    {%endif%}
+                    {% endfor%}
                   </div>
                 </div>
               </div>
-              {%endif%}
-              {% endfor%}
             </div>
-          </div>
-        </div>
       </div>
-    </div>
-
 
 {% endblock %}
